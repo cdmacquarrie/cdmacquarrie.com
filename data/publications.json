@@ -1,0 +1,192 @@
+{
+  "count": 18,
+  "entries": [
+    {
+      "title": "Marine Broth induces extreme morphological transformations in Chlamydomonas smithii",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad2873",
+      "url": null,
+      "source": "crossref"
+    },
+    {
+      "title": "Modular CRISPR landing pads for <em>Chlamydomonas reinhardtii</em>",
+      "authors": "Bigge BM, Bulow C, Caddell D, Futia R, <b>MacQuarrie CD</b>",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Morphological transformation of <em>Chlamydomonas smithii</em> grown in Marine Broth medium",
+      "authors": "<b>MacQuarrie CD</b>, Mets DG",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "<em>Chlamydomonas</em> cpc1-1 mutant exhibits unexpected growth phenotypes",
+      "authors": "Bell A, Hochstrasser ML, <b>MacQuarrie CD</b>, Mets DG",
+      "venue": "Arcadia Science",
+      "year": 2025,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://research.arcadiascience.com/pub/observation-chlamy-cpc1-growth",
+      "source": "manual"
+    },
+    {
+      "title": "Enabling integrative cell biology with the Arcadia <em>Chlamydomonas</em> Diversity Collection",
+      "authors": "York R, Avasthi P, Braverman B, Essock-Burns T, Garcia G, Gehring J, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Molecular Biology of the Cell",
+      "year": 2024,
+      "kind": "abstract",
+      "badge": "Abstract",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "High-throughput analysis of phenotypic variation between interfertile <em>Chlamydomonas</em> species",
+      "authors": "Avasthi P, Braverman B, Essock-Burns T, Garcia G III, Gehring J, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Molecular Biology of the Cell",
+      "year": 2024,
+      "kind": "abstract",
+      "badge": "Abstract",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Live 3D-imaging of unicellular algae for high-content phenotyping",
+      "authors": "Avasthi P, Essock-Burns T, Garcia G III, Matus DQ, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Molecular Biology of the Cell",
+      "year": 2024,
+      "kind": "abstract",
+      "badge": "Abstract",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Morphological and motility differences in interfertile <em>Chlamydomonas</em> algal species: technological advancements in quantitative analysis",
+      "authors": "Garcia G, Celebi F, Essock-Burns T, Hochstrasser M, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Molecular Biology of the Cell",
+      "year": 2024,
+      "kind": "abstract",
+      "badge": "Abstract",
+      "doi": null,
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Raman spectroscopy enables rapid and inexpensive exploration of biology",
+      "authors": "Avasthi P, Bigge BM, Braverman B, Essock-Burns T, Lane R, <b>MacQuarrie CD</b>, Mets DG, et al.",
+      "venue": "Arcadia Science",
+      "year": 2024,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://research.arcadiascience.com/pub/result-easy-raman-spectroscopy",
+      "source": "manual"
+    },
+    {
+      "title": "Rescuing <em>Chlamydomonas</em> motility in mutants modeling spermatogenic failure",
+      "authors": "Bell A, Essock-Burns T, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>, Mets DG",
+      "venue": "Arcadia Science",
+      "year": 2024,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://research.arcadiascience.com/pub/result-chlamy-spgf",
+      "source": "manual"
+    },
+    {
+      "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
+      "authors": "Avasthi P, <b>MacQuarrie CD</b>, Radkov A",
+      "venue": "Arcadia Science",
+      "year": 2023,
+      "kind": "arcadia",
+      "doi": "10.57844/arcadia-fh8f-xz51",
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Phenotypic differences between interfertile <em>Chlamydomonas</em> species",
+      "authors": "Avasthi P, Braverman B, Essock-Burns T, Garcia G III, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Arcadia Science",
+      "year": 2023,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://research.arcadiascience.com/pub/result-chlamydomonas-phenotypes",
+      "source": "manual"
+    },
+    {
+      "title": "ProteinCartography: comparing proteins with structure-based maps for interactive exploration",
+      "authors": "Avasthi P, Bigge BM, Celebi FM, Cheveralls K, Gehring J, McGeever E, <b>MacQuarrie CD</b>, et al.",
+      "venue": "Arcadia Science",
+      "year": 2023,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://research.arcadiascience.com/pub/resource-protein-cartography",
+      "source": "manual"
+    },
+    {
+      "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
+      "authors": "Avasthi P, <b>MacQuarrie CD</b>",
+      "venue": "Arcadia Science",
+      "year": 2022,
+      "kind": "arcadia",
+      "doi": "10.57844/arcadia-eqg7-kf54",
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Mechanisms of Wiskott&ndash;Aldrich syndrome protein Wsp1 positioning and regulation at sites of endocytosis in <em>S. pombe</em>",
+      "authors": "<b>MacQuarrie CD</b>",
+      "venue": "PhD thesis, SUNY Upstate Medical University",
+      "year": 2020,
+      "kind": "preprint",
+      "badge": "Thesis",
+      "doi": null,
+      "url": "https://soar.suny.edu/handle/20.500.12648/1464",
+      "source": "manual"
+    },
+    {
+      "title": "First person &ndash; Cameron MacQuarrie",
+      "authors": "<b>MacQuarrie CD</b>",
+      "venue": "Journal of Cell Science",
+      "year": 2019,
+      "kind": "journal",
+      "badge": "Interview",
+      "doi": "10.1242/jcs.237727",
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "The <em>S. pombe</em> adaptor protein Bbc1 regulates localization of Wsp1 and Vrp1 during endocytic actin patch assembly",
+      "authors": "<b>MacQuarrie CD</b>, Mangione MSC, Carroll R, James M, Gould KL, Sirotkin V",
+      "venue": "Journal of Cell Science 132: jcs233502",
+      "year": 2019,
+      "kind": "journal",
+      "doi": "10.1242/jcs.233502",
+      "url": null,
+      "source": "manual"
+    },
+    {
+      "title": "Adaptor protein Bbc1 regulates localization of Wsp1 and Vrp1 during endocytic actin patch assembly",
+      "authors": "<b>MacQuarrie CD</b>, Mangione MSC, Carroll R, James M, Gould KL, Sirotkin V",
+      "venue": "bioRxiv",
+      "year": 2018,
+      "kind": "preprint",
+      "badge": "Preprint",
+      "doi": "10.1101/389015",
+      "url": null,
+      "source": "manual"
+    }
+  ]
+}

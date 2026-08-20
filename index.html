@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cameron MacQuarrie — Cell Biology</title>
+<meta name="description" content="Cameron MacQuarrie, PhD, is a cell biologist at Arcadia Science working on the comparative cell biology of microalgae — imaging, phenotyping, and genetic tools for organisms that do not have them yet. Publications, microscopy, and runnable simulations.">
+<meta name="author" content="Cameron Dale MacQuarrie">
+<link rel="canonical" href="https://www.cdmacquarrie.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Cameron MacQuarrie — Cell Biology">
+<meta property="og:description" content="Cell biology in organisms nobody has looked at closely yet. Papers, microscopy, and simulations you can run.">
+<meta property="og:url" content="https://www.cdmacquarrie.com/">
+<meta property="og:site_name" content="Cameron MacQuarrie">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Optional: drop a 1200x630 image at images/og.jpg and uncomment.
+<meta property="og:image" content="https://www.cdmacquarrie.com/images/og.jpg"> -->
+
+<meta name="theme-color" content="#07090d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2307090d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%2342e2a4' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23f26bd0'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/playground.css">
+
+<script>
+  /* Set the theme before first paint so there is no flash. */
+  (function () {
+    try {
+      var stored = localStorage.getItem("theme");
+      var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+      document.documentElement.setAttribute("data-theme", stored || (prefersLight ? "light" : "dark"));
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Cameron Dale MacQuarrie",
+  "honorificSuffix": "PhD",
+  "jobTitle": "Scientist, Cell Biology",
+  "url": "https://www.cdmacquarrie.com/",
+  "worksFor": { "@type": "Organization", "name": "Arcadia Science", "url": "https://www.arcadiascience.com/" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "SUNY Upstate Medical University" },
+    { "@type": "CollegeOrUniversity", "name": "Geisel School of Medicine at Dartmouth" }
+  ],
+  "knowsAbout": ["Cell biology", "Comparative cell biology", "Microalgae", "Chlamydomonas", "Live-cell imaging", "High-content phenotyping", "CRISPR", "Cytoskeleton"],
+  "sameAs": [
+    "https://orcid.org/0000-0001-9504-6375",
+    "https://scholar.google.com/citations?user=lGgNSvAAAAAJ&hl=en",
+    "https://www.linkedin.com/in/cameron-dale-macquarrie-bbb89258/",
+    "https://www.researchgate.net/profile/Cameron_Macquarrie"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">MacQuarrie</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#playground">Playground</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#gallery">Images</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav-theme">
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch to light theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal">Cell biology &middot; Emeryville, California</p>
+    <h1 class="hero-title reveal">Most cells have<br>never been<br><em>looked at</em>.</h1>
+    <p class="hero-lede reveal">
+      I&rsquo;m Cameron MacQuarrie, a cell biologist at
+      <a href="https://www.arcadiascience.com/" target="_blank" rel="noopener">Arcadia Science</a>.
+      I work on microalgae &mdash; <em>Chlamydomonas</em>, diatoms, and stranger things &mdash;
+      building the imaging, phenotyping, and genetic tools you need to do cell biology in
+      organisms that don&rsquo;t have any yet.
+    </p>
+
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#playground">Run a simulation</a>
+      <a class="btn" href="#publications">Read the papers</a>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#work" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">01 &mdash; Work</p>
+      <h2 class="section-title">What I actually do</h2>
+    </header>
+
+    <div class="cards">
+      <article class="card reveal">
+        <h3>Cell biology past the model organisms</h3>
+        <p>
+          Almost everything we know about how cells work comes from a handful of species.
+          I work on microalgae instead &mdash; interfertile <em>Chlamydomonas</em> species that
+          differ in ways nobody had catalogued, diatoms that hold their shape inside a silica
+          wall, chlorarachniophytes that hunt. They keep doing things the textbook version
+          does not predict.
+        </p>
+        <ul class="tags"><li>Chlamydomonas</li><li>Diatoms</li><li>Comparative cell biology</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <h3>Tools for organisms that have none</h3>
+        <p>
+          The bottleneck is rarely the question, it is the method. So: quantitative live-cell
+          imaging, high-content and 3D phenotyping, Raman spectroscopy, modular CRISPR landing
+          pads, and strain collections other people can actually use. Published openly as it
+          happens, negative results included.
+        </p>
+        <ul class="tags"><li>Live imaging</li><li>Phenotyping</li><li>CRISPR tooling</li></ul>
+      </article>
+
+      <article class="card reveal">
+        <h3>Earlier: the cytoskeleton, up close</h3>
+        <p>
+          My PhD and postdoc were spent on branched actin &mdash; how a cell positions the
+          machinery that builds it. In fission yeast, the adaptor Bbc1 turns out to control
+          where the WASP protein Wsp1 sits inside an endocytic patch, making position itself
+          a form of regulation. Two of the simulations below come from that work.
+        </p>
+        <ul class="tags"><li>S. pombe</li><li>Arp2/3</li><li>Endocytosis</li></ul>
+      </article>
+    </div>
+
+    <div class="previously reveal">
+      <h3 class="prev-title">Previously</h3>
+      <ul class="prev-list">
+        <li><span class="prev-when">2021&ndash;</span> <span class="prev-what">Arcadia Science &middot; Emeryville, CA</span></li>
+        <li><span class="prev-when">2020&ndash;21</span> <span class="prev-what">Postdoc, Avasthi Lab &middot; Geisel School of Medicine at Dartmouth</span></li>
+        <li><span class="prev-when">2014&ndash;20</span> <span class="prev-what">PhD with Vladimir Sirotkin &middot; SUNY Upstate Medical University &middot; <a href="https://soar.suny.edu/handle/20.500.12648/1464" target="_blank" rel="noopener">thesis</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAYGROUND ============ -->
+<section class="section section-alt" id="playground">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">02 &mdash; Playground</p>
+      <h2 class="section-title">Papers you can play</h2>
+      <p class="section-intro">
+        Toy models of things from the papers below, written in Python and run in your browser via
+        <a href="https://pyodide.org/" target="_blank" rel="noopener">Pyodide</a> &mdash; no server, no install.
+        They are deliberately simplified: the point is intuition, not quantitative accuracy.
+      </p>
+    </header>
+
+    <div class="pg reveal">
+      <div class="pg-tabs" role="tablist" aria-label="Choose a simulation">
+        <button class="pg-tab is-active" role="tab" aria-selected="true" data-sim="hunt" id="tab-hunt" aria-controls="pg-stage">Hunting cell</button>
+        <button class="pg-tab" role="tab" aria-selected="false" data-sim="actin" id="tab-actin" aria-controls="pg-stage">Branched actin</button>
+        <button class="pg-tab" role="tab" aria-selected="false" data-sim="patch" id="tab-patch" aria-controls="pg-stage">Endocytic patch</button>
+      </div>
+
+      <div class="pg-body" id="pg-stage" role="tabpanel" aria-labelledby="tab-hunt">
+        <div class="pg-stage">
+          <canvas id="pgCanvas" width="900" height="560" aria-label="Simulation viewport"></canvas>
+          <div class="pg-overlay" id="pgOverlay">
+            <p class="pg-blurb" id="pgBlurb"></p>
+            <button class="btn btn-primary" id="pgStart">Load Python &amp; run</button>
+            <p class="pg-note">Downloads the Pyodide runtime (~10&nbsp;MB) the first time.</p>
+          </div>
+          <p class="pg-status" id="pgStatus" role="status"></p>
+        </div>
+
+        <aside class="pg-panel">
+          <h3 class="pg-name" id="pgName">Hunting cell</h3>
+          <p class="pg-desc" id="pgDesc"></p>
+          <div class="pg-controls" id="pgControls"></div>
+          <div class="pg-readout" id="pgReadout"></div>
+          <div class="pg-buttons">
+            <button class="btn btn-sm" id="pgReset" disabled>Reset</button>
+            <button class="btn btn-sm" id="pgPause" disabled>Pause</button>
+          </div>
+          <details class="pg-source">
+            <summary>View the Python</summary>
+            <pre><code id="pgCode">Load a simulation to see its source.</code></pre>
+          </details>
+          <p class="pg-cite" id="pgCite"></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section class="section" id="publications">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">03 &mdash; Publications</p>
+      <h2 class="section-title">Publications</h2>
+      <p class="section-intro">
+        Complete list, newest first. Live indexes:
+        <a href="https://scholar.google.com/citations?user=lGgNSvAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> &middot;
+        <a href="https://orcid.org/0000-0001-9504-6375" target="_blank" rel="noopener">ORCID</a>.
+      </p>
+    </header>
+
+    <div class="filters reveal" role="group" aria-label="Filter publications">
+      <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="journal" aria-pressed="false">Journal articles</button>
+      <button class="chip" data-filter="arcadia" aria-pressed="false">Arcadia Science</button>
+      <button class="chip" data-filter="preprint" aria-pressed="false">Preprints &amp; thesis</button>
+      <button class="chip" data-filter="abstract" aria-pressed="false">Conference abstracts</button>
+      <button class="chip" data-filter="dataset" aria-pressed="false">Data</button>
+    </div>
+    <p class="filter-status sr-only" id="filterStatus" role="status"></p>
+
+    <!-- PUBS:START -->
+    <div class="pub-year reveal" data-year="2026">
+      <h3 class="year-label">2026</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="dataset">
+          <p class="pub-title">Marine Broth induces extreme morphological transformations in Chlamydomonas smithii</p>
+          <p class="pub-authors"><b>MacQuarrie C</b></p>
+          <p class="pub-meta"><span class="venue">BioStudies Database</span>
+            <span class="badge">Dataset</span>
+            <a class="pub-link" href="https://doi.org/10.6019/s-biad2873" target="_blank" rel="noopener">doi:10.6019/s-biad2873</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Modular CRISPR landing pads for <em>Chlamydomonas reinhardtii</em></p>
+          <p class="pub-authors">Bigge BM, Bulow C, Caddell D, Futia R, <b>MacQuarrie CD</b></p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=Modular+CRISPR+landing+pads+for+Chlamydomonas+reinhardtii" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Morphological transformation of <em>Chlamydomonas smithii</em> grown in Marine Broth medium</p>
+          <p class="pub-authors"><b>MacQuarrie CD</b>, Mets DG</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=Morphological+transformation+of+Chlamydomonas+smithii+grown+in+Marine+Broth+medium" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2025">
+      <h3 class="year-label">2025</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title"><em>Chlamydomonas</em> cpc1-1 mutant exhibits unexpected growth phenotypes</p>
+          <p class="pub-authors">Bell A, Hochstrasser ML, <b>MacQuarrie CD</b>, Mets DG</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://research.arcadiascience.com/pub/observation-chlamy-cpc1-growth" target="_blank" rel="noopener">Read</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2024">
+      <h3 class="year-label">2024</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="abstract">
+          <p class="pub-title">Enabling integrative cell biology with the Arcadia <em>Chlamydomonas</em> Diversity Collection</p>
+          <p class="pub-authors">York R, Avasthi P, Braverman B, Essock-Burns T, Garcia G, Gehring J, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Molecular Biology of the Cell</span>
+            <span class="badge">Abstract</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=Enabling+integrative+cell+biology+with+the+Arcadia+Chlamydomonas+Diversity+Collection" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+        <li class="pub" data-kind="abstract">
+          <p class="pub-title">High-throughput analysis of phenotypic variation between interfertile <em>Chlamydomonas</em> species</p>
+          <p class="pub-authors">Avasthi P, Braverman B, Essock-Burns T, Garcia G III, Gehring J, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Molecular Biology of the Cell</span>
+            <span class="badge">Abstract</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=High-throughput+analysis+of+phenotypic+variation+between+interfertile+Chlamydomonas+species" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+        <li class="pub" data-kind="abstract">
+          <p class="pub-title">Live 3D-imaging of unicellular algae for high-content phenotyping</p>
+          <p class="pub-authors">Avasthi P, Essock-Burns T, Garcia G III, Matus DQ, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Molecular Biology of the Cell</span>
+            <span class="badge">Abstract</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=Live+3D-imaging+of+unicellular+algae+for+high-content+phenotyping" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+        <li class="pub" data-kind="abstract">
+          <p class="pub-title">Morphological and motility differences in interfertile <em>Chlamydomonas</em> algal species: technological advancements in quantitative analysis</p>
+          <p class="pub-authors">Garcia G, Celebi F, Essock-Burns T, Hochstrasser M, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Molecular Biology of the Cell</span>
+            <span class="badge">Abstract</span>
+            <a class="pub-link pub-search" href="https://scholar.google.com/scholar?q=Morphological+and+motility+differences+in+interfertile+Chlamydomonas+algal+species%3A+technological+advancements+in+quantitative+analysis" target="_blank" rel="noopener">Find it</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Raman spectroscopy enables rapid and inexpensive exploration of biology</p>
+          <p class="pub-authors">Avasthi P, Bigge BM, Braverman B, Essock-Burns T, Lane R, <b>MacQuarrie CD</b>, Mets DG, et al.</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://research.arcadiascience.com/pub/result-easy-raman-spectroscopy" target="_blank" rel="noopener">Read</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Rescuing <em>Chlamydomonas</em> motility in mutants modeling spermatogenic failure</p>
+          <p class="pub-authors">Bell A, Essock-Burns T, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>, Mets DG</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://research.arcadiascience.com/pub/result-chlamy-spgf" target="_blank" rel="noopener">Read</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2023">
+      <h3 class="year-label">2023</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition</p>
+          <p class="pub-authors">Avasthi P, <b>MacQuarrie CD</b>, Radkov A</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://doi.org/10.57844/arcadia-fh8f-xz51" target="_blank" rel="noopener">doi:10.57844/arcadia-fh8f-xz51</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Phenotypic differences between interfertile <em>Chlamydomonas</em> species</p>
+          <p class="pub-authors">Avasthi P, Braverman B, Essock-Burns T, Garcia G III, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://research.arcadiascience.com/pub/result-chlamydomonas-phenotypes" target="_blank" rel="noopener">Read</a></p>
+        </li>
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">ProteinCartography: comparing proteins with structure-based maps for interactive exploration</p>
+          <p class="pub-authors">Avasthi P, Bigge BM, Celebi FM, Cheveralls K, Gehring J, McGeever E, <b>MacQuarrie CD</b>, et al.</p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://research.arcadiascience.com/pub/resource-protein-cartography" target="_blank" rel="noopener">Read</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2022">
+      <h3 class="year-label">2022</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="arcadia">
+          <p class="pub-title">Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation</p>
+          <p class="pub-authors">Avasthi P, <b>MacQuarrie CD</b></p>
+          <p class="pub-meta"><span class="venue">Arcadia Science</span>
+            <a class="pub-link" href="https://doi.org/10.57844/arcadia-eqg7-kf54" target="_blank" rel="noopener">doi:10.57844/arcadia-eqg7-kf54</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2020">
+      <h3 class="year-label">2020</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="preprint">
+          <p class="pub-title">Mechanisms of Wiskott&ndash;Aldrich syndrome protein Wsp1 positioning and regulation at sites of endocytosis in <em>S. pombe</em></p>
+          <p class="pub-authors"><b>MacQuarrie CD</b></p>
+          <p class="pub-meta"><span class="venue">PhD thesis, SUNY Upstate Medical University</span>
+            <span class="badge">Thesis</span>
+            <a class="pub-link" href="https://soar.suny.edu/handle/20.500.12648/1464" target="_blank" rel="noopener">Read</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2019">
+      <h3 class="year-label">2019</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="journal">
+          <p class="pub-title">First person &ndash; Cameron MacQuarrie</p>
+          <p class="pub-authors"><b>MacQuarrie CD</b></p>
+          <p class="pub-meta"><span class="venue">Journal of Cell Science</span>
+            <span class="badge">Interview</span>
+            <a class="pub-link" href="https://doi.org/10.1242/jcs.237727" target="_blank" rel="noopener">doi:10.1242/jcs.237727</a></p>
+        </li>
+        <li class="pub" data-kind="journal">
+          <p class="pub-title">The <em>S. pombe</em> adaptor protein Bbc1 regulates localization of Wsp1 and Vrp1 during endocytic actin patch assembly</p>
+          <p class="pub-authors"><b>MacQuarrie CD</b>, Mangione MSC, Carroll R, James M, Gould KL, Sirotkin V</p>
+          <p class="pub-meta"><span class="venue">Journal of Cell Science 132: jcs233502</span>
+            <a class="pub-link" href="https://doi.org/10.1242/jcs.233502" target="_blank" rel="noopener">doi:10.1242/jcs.233502</a></p>
+        </li>
+      </ol>
+    </div>
+    <div class="pub-year reveal" data-year="2018">
+      <h3 class="year-label">2018</h3>
+      <ol class="pub-list">
+        <li class="pub" data-kind="preprint">
+          <p class="pub-title">Adaptor protein Bbc1 regulates localization of Wsp1 and Vrp1 during endocytic actin patch assembly</p>
+          <p class="pub-authors"><b>MacQuarrie CD</b>, Mangione MSC, Carroll R, James M, Gould KL, Sirotkin V</p>
+          <p class="pub-meta"><span class="venue">bioRxiv</span>
+            <span class="badge">Preprint</span>
+            <a class="pub-link" href="https://doi.org/10.1101/389015" target="_blank" rel="noopener">doi:10.1101/389015</a></p>
+        </li>
+      </ol>
+    </div>
+    <!-- PUBS:END -->
+
+    <p class="pub-empty" id="pubEmpty" hidden>No publications in that category.</p>
+  </div>
+</section>
+
+<!-- ============ IMAGES ============ -->
+<section class="section section-alt" id="gallery">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">04 &mdash; Images</p>
+      <h2 class="section-title">Down the microscope</h2>
+      <p class="section-intro">
+        Fluorescence and brightfield from the bench. Green is usually GFP, magenta usually mCherry.
+      </p>
+    </header>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <noscript><p class="section-intro">Enable JavaScript to view the gallery.</p></noscript>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="section-kicker">05 &mdash; Contact</p>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-intro">
+        Happy to talk about odd organisms, microscopy, and how to phenotype things nobody has phenotyped.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="contact-primary reveal">
+        <a class="mailto" href="mailto:cameron.macquarrie@arcadiascience.com">cameron.macquarrie@arcadiascience.com</a>
+        <address class="postal">
+          Arcadia Science<br>
+          6401 Hollis St, Suite 100<br>
+          Emeryville, CA 94608
+        </address>
+      </div>
+
+      <ul class="contact-links reveal" aria-label="Profiles">
+        <li><a href="https://scholar.google.com/citations?user=lGgNSvAAAAAJ&hl=en" target="_blank" rel="noopener"><span>Google Scholar</span><span class="arw" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://orcid.org/0000-0001-9504-6375" target="_blank" rel="noopener"><span>ORCID</span><span class="arw" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://www.linkedin.com/in/cameron-dale-macquarrie-bbb89258/" target="_blank" rel="noopener"><span>LinkedIn</span><span class="arw" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://research.arcadiascience.com/" target="_blank" rel="noopener"><span>Arcadia Science research</span><span class="arw" aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-name">Cameron Dale MacQuarrie</p>
+    <p class="footer-meta">
+      &copy; <span id="year">2026</span> &middot;
+      Designed and built with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude</a> &middot;
+      <a href="https://github.com/" target="_blank" rel="noopener" id="repoLink">Source</a> &middot;
+      <a href="#top">Top</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <figure class="lb-figure">
+    <img id="lbImg" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
+</div>
+
+<script src="js/gallery.js"></script>
+<script src="js/main.js"></script>
+<script src="js/playground.js"></script>
+</body>
+</html>
