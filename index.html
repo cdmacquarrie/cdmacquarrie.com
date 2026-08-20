@@ -54,7 +54,7 @@
     { "@type": "CollegeOrUniversity", "name": "SUNY Upstate Medical University" },
     { "@type": "CollegeOrUniversity", "name": "Geisel School of Medicine at Dartmouth" }
   ],
-  "knowsAbout": ["Cell biology", "Comparative cell biology", "Organism selection", "Protein structure", "Disease modelling", "Live-cell imaging", "High-content phenotyping", "Cytoskeleton"],
+  "knowsAbout": ["Cell biology", "Comparative cell biology", "Model organisms", "Disease modelling", "Live-cell imaging", "High-content phenotyping", "Microscopy", "Cytoskeleton"],
   "sameAs": [
     "https://orcid.org/0000-0001-9504-6375",
     "https://scholar.google.com/citations?user=lGgNSvAAAAAJ&hl=en",
@@ -135,14 +135,15 @@
       <article class="card reveal">
         <h3>Finding the right organism for the question</h3>
         <p>
-          Most human disease work happens in a handful of species. We compare predicted
-          protein structures across a set of experimentally tractable eukaryotes, scoring each
-          organism's proteins against the human versions using a statistical distance over ten
-          physicochemical properties. Organisms that score closer than their evolutionary
-          distance would suggest are the ones worth testing. The results are searchable in
+          Most human disease work happens in a handful of species. Computational biologists
+          at Arcadia score how closely each organism's predicted protein structures match the
+          human versions, and surface the ones that come out closer than their evolutionary
+          distance would suggest &mdash; that analysis is searchable in
           <a href="https://zoogle.arcadiascience.com/about" target="_blank" rel="noopener">Zoogle</a>.
+          My part is downstream of it: taking those candidates to the bench and working out
+          whether they behave like usable models.
         </p>
-        <ul class="tags"><li>Organism selection</li><li>Protein structure</li><li>Disease models</li></ul>
+        <ul class="tags"><li>Model organisms</li><li>Disease models</li><li>Bench validation</li></ul>
       </article>
 
       <article class="card reveal">
@@ -158,10 +159,12 @@
       <article class="card reveal">
         <h3>Earlier: the actin cytoskeleton</h3>
         <p>
-          My PhD and postdoc were on branched actin &mdash; how a cell positions the machinery
-          that builds it. In fission yeast, the adaptor Bbc1 controls where the WASP protein
-          Wsp1 sits within an endocytic patch, which changes how far the patch internalises.
-          The endocytosis sandbox below is built from that thesis.
+          My PhD was on branched actin in fission yeast &mdash; how a cell positions the
+          machinery that builds it. The adaptor Bbc1 controls where the WASP protein Wsp1 sits
+          within an endocytic patch, which changes how far the patch internalises. My postdoc
+          moved to <em>Chlamydomonas reinhardtii</em>, asking how the Arp2/3 complex is
+          regulated in an organism with no conventional nucleation-promoting factors. The
+          endocytosis sandbox below is built from the thesis.
         </p>
         <ul class="tags"><li>S. pombe</li><li>Arp2/3</li><li>Endocytosis</li></ul>
       </article>
