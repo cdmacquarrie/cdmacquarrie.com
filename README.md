@@ -128,13 +128,20 @@ time a visitor presses the button (~10 MB, cached afterward), then runs the
 Python in `py/` directly in the browser. The Python is the simulation; JavaScript
 only draws the shapes it returns and forwards slider values back.
 
+`py/endocytosis.py` is the fission yeast endocytosis sandbox. Its rate constants
+are tuned so that each genotype reproduces the measured phenotype: 0.5 um
+internalisation in wild type, 1.0 um in *bbc1D*, ~330 nm in *vrp1D*, a normal
+distance in *myo1-dCA*, and the *bbc1D myo1-SH3-LCA* rescue back to 0.5 um.
+If you change a constant, re-run the calibration before trusting it.
+
 To add one, write `py/yourthing.py` exposing a `Sim` class with:
 
 | member | purpose |
 | --- | --- |
 | `name`, `blurb`, `cite` | shown in the side panel |
-| `controls()` | list of slider dicts (`id`, `label`, `min`, `max`, `step`, `value`, `hint`) |
+| `controls()` | sliders (`id`, `label`, `min`, `max`, `step`, `value`, `hint`) or dropdowns (`type: "select"`, `options`) |
 | `set_param(key, value)` | called when a slider moves |
+| `set_choice(key, value)` | called when a dropdown changes |
 | `set_pointer(x, y, down)` | pointer position in simulation coordinates |
 | `reset()` | restore initial state |
 | `step(dt)` | advance by `dt` seconds |
@@ -164,7 +171,8 @@ css/playground.css      simulation panel
 js/main.js              theme, nav, reveal, filters, lightbox, hero canvas
 js/playground.js        Pyodide harness and canvas renderer
 js/gallery.js           generated — do not edit
-py/*.py                 the simulations
+py/endocytosis.py       the thesis sandbox
+py/hunt.py              the chlorarachniophyte model
 data/manual.json        publications, source of truth
 data/captions.json      gallery captions
 scripts/                the two generators

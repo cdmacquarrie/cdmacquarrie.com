@@ -7,9 +7,8 @@
   var PYODIDE_URL = "https://cdn.jsdelivr.net/pyodide/v" + PYODIDE_VERSION + "/full/";
 
   var SIMS = {
-    hunt:  { file: "py/hunt.py",  label: "Hunting cell" },
-    actin: { file: "py/actin.py", label: "Branched actin" },
-    patch: { file: "py/patch.py", label: "Endocytic patch" }
+    patch: { file: "py/endocytosis.py", label: "Endocytic patch" },
+    hunt:  { file: "py/hunt.py",        label: "Hunting cell" }
   };
 
   var canvas = document.getElementById("pgCanvas");
@@ -32,7 +31,7 @@
 
   var pyodide = null;
   var loading = false;
-  var currentKey = "hunt";
+  var currentKey = "patch";
   var running = false;
   var lastTime = 0;
   var rafId = 0;
@@ -137,8 +136,40 @@
     list.forEach(function (c) {
       var wrap = document.createElement("div");
       wrap.className = "ctrl";
-
       var id = "ctrl-" + c.id;
+
+      if (c.type === "select") {
+        var slabel = document.createElement("label");
+        slabel.setAttribute("for", id);
+        slabel.innerHTML = "<span>" + c.label + "</span>";
+
+        var sel = document.createElement("select");
+        sel.id = id;
+        sel.className = "ctrl-select";
+        c.options.forEach(function (o) {
+          var opt = document.createElement("option");
+          opt.value = o.value;
+          opt.innerHTML = o.label;
+          if (o.value === c.value) opt.selected = true;
+          sel.appendChild(opt);
+        });
+
+        var note = document.createElement("p");
+        note.className = "ctrl-hint";
+        note.innerHTML = describe(c, sel.value);
+
+        sel.addEventListener("change", function () {
+          note.innerHTML = describe(c, sel.value);
+          if (pyodide) pyodide.globals.get("_set_choice")(c.id, sel.value);
+        });
+
+        wrap.appendChild(slabel);
+        wrap.appendChild(sel);
+        wrap.appendChild(note);
+        controlsEl.appendChild(wrap);
+        return;
+      }
+
       var label = document.createElement("label");
       label.setAttribute("for", id);
       label.innerHTML = '<span>' + c.label + '</span><output id="out-' + c.id + '">' +
@@ -169,6 +200,11 @@
     });
   }
 
+  function describe(control, value) {
+    var match = (control.options || []).filter(function (o) { return o.value === value; })[0];
+    return match && match.hint ? match.hint : (control.hint || "");
+  }
+
   function formatVal(v) {
     var n = parseFloat(v);
     return Math.abs(n) >= 10 ? String(Math.round(n)) : n.toFixed(2);
@@ -191,6 +227,8 @@
     "    })",
     "def _set_param(k, v):",
     "    _sim.set_param(k, v)",
+    "def _set_choice(k, v):",
+    "    _sim.set_choice(k, v)",
     "def _pointer(x, y, d):",
     "    _sim.set_pointer(x, y, d)",
     "def _reset():",
@@ -354,6 +392,6 @@
   }
 
   /* initial copy in the side panel before anything loads */
-  blurbEl.textContent = "Three toy models from the papers below, written in Python.";
+  blurbEl.textContent = "A fission yeast endocytic patch, built from the thesis below.";
   descEl.textContent = "Pick a simulation and press the button. The Python runs in your browser \u2014 you can read the source below it.";
 })();

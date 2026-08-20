@@ -172,6 +172,7 @@
         <li><span class="prev-when">2021&ndash;</span> <span class="prev-what">Arcadia Science &middot; Emeryville, CA</span></li>
         <li><span class="prev-when">2020&ndash;21</span> <span class="prev-what">Postdoc, Avasthi Lab &middot; Geisel School of Medicine at Dartmouth</span></li>
         <li><span class="prev-when">2014&ndash;20</span> <span class="prev-what">PhD with Vladimir Sirotkin &middot; SUNY Upstate Medical University &middot; <a href="https://soar.suny.edu/handle/20.500.12648/1464" target="_blank" rel="noopener">thesis</a></span></li>
+        <li><span class="prev-when">B.Sc.</span> <span class="prev-what">Molecular Biology &middot; Lipscomb University</span></li>
       </ul>
     </div>
   </div>
@@ -184,20 +185,20 @@
       <p class="section-kicker">02 &mdash; Playground</p>
       <h2 class="section-title">Papers you can play</h2>
       <p class="section-intro">
-        Toy models of things from the papers below, written in Python and run in your browser via
+        Two models from the work below, written in Python and run in your browser via
         <a href="https://pyodide.org/" target="_blank" rel="noopener">Pyodide</a> &mdash; no server, no install.
-        They are deliberately simplified: the point is intuition, not quantitative accuracy.
+        The first is a sandbox built from my thesis: pick a genotype and watch a fission yeast
+        endocytic patch succeed or fail the way the mutants actually do.
       </p>
     </header>
 
     <div class="pg reveal">
       <div class="pg-tabs" role="tablist" aria-label="Choose a simulation">
-        <button class="pg-tab is-active" role="tab" aria-selected="true" data-sim="hunt" id="tab-hunt" aria-controls="pg-stage">Hunting cell</button>
-        <button class="pg-tab" role="tab" aria-selected="false" data-sim="actin" id="tab-actin" aria-controls="pg-stage">Branched actin</button>
-        <button class="pg-tab" role="tab" aria-selected="false" data-sim="patch" id="tab-patch" aria-controls="pg-stage">Endocytic patch</button>
+        <button class="pg-tab is-active" role="tab" aria-selected="true" data-sim="patch" id="tab-patch" aria-controls="pg-stage">Endocytic patch</button>
+        <button class="pg-tab" role="tab" aria-selected="false" data-sim="hunt" id="tab-hunt" aria-controls="pg-stage">Hunting cell</button>
       </div>
 
-      <div class="pg-body" id="pg-stage" role="tabpanel" aria-labelledby="tab-hunt">
+      <div class="pg-body" id="pg-stage" role="tabpanel" aria-labelledby="tab-patch">
         <div class="pg-stage">
           <canvas id="pgCanvas" width="900" height="560" aria-label="Simulation viewport"></canvas>
           <div class="pg-overlay" id="pgOverlay">
@@ -209,7 +210,7 @@
         </div>
 
         <aside class="pg-panel">
-          <h3 class="pg-name" id="pgName">Hunting cell</h3>
+          <h3 class="pg-name" id="pgName">Endocytic patch</h3>
           <p class="pg-desc" id="pgDesc"></p>
           <div class="pg-controls" id="pgControls"></div>
           <div class="pg-readout" id="pgReadout"></div>
@@ -421,9 +422,17 @@
       <p class="section-kicker">04 &mdash; Images</p>
       <h2 class="section-title">Down the microscope</h2>
       <p class="section-intro">
-        Fluorescence and brightfield from the bench. Green is usually GFP, magenta usually mCherry.
+        <em>Bigelowiella longifila</em> catching prey with one of its extensions &mdash; the behaviour
+        behind the chlorarachniophyte paper below, and behind the second simulation above.
       </p>
     </header>
+
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/ej1mtyKTDm0?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=ej1mtyKTDm0&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1"
+        title="Bigelowiella longifila capturing prey with an extension"
+        loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
     <div class="gallery-grid" id="galleryGrid"></div>
     <noscript><p class="section-intro">Enable JavaScript to view the gallery.</p></noscript>
