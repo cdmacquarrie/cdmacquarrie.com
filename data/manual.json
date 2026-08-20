@@ -6,7 +6,7 @@
   "entries": [
     {
       "title": "Modular CRISPR landing pads for <em>Chlamydomonas reinhardtii</em>",
-      "authors": "Bigge BM, Bulow C, Caddell D, Futia R, <b>MacQuarrie CD</b>",
+      "authors": "Futia R, Bigge BM, Caddell D, <b>MacQuarrie CD</b>, Bulow C, Bell A",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
@@ -15,7 +15,7 @@
     },
     {
       "title": "Morphological transformation of <em>Chlamydomonas smithii</em> grown in Marine Broth medium",
-      "authors": "<b>MacQuarrie CD</b>, Mets DG",
+      "authors": "Bell A, Lane R, <b>MacQuarrie CD</b>, Mets DG",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
@@ -42,7 +42,7 @@
     },
     {
       "title": "Raman spectroscopy enables rapid and inexpensive exploration of biology",
-      "authors": "Avasthi P, Bigge BM, Braverman B, Essock-Burns T, Lane R, <b>MacQuarrie CD</b>, Mets DG, et al.",
+      "authors": "Avasthi P, Bell A, Bigge BM, Braverman B, Essock-Burns T, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>, Mets DG, Patton AH, Sun DA, Wood H, York R",
       "venue": "Arcadia Science",
       "year": 2024,
       "kind": "arcadia",
@@ -91,7 +91,7 @@
     },
     {
       "title": "ProteinCartography: comparing proteins with structure-based maps for interactive exploration",
-      "authors": "Avasthi P, Bigge BM, Celebi FM, Cheveralls K, Gehring J, McGeever E, <b>MacQuarrie CD</b>, et al.",
+      "authors": "Avasthi P, Bigge BM, Borges AL, Celebi FM, Cheveralls K, Dutton RJ, Gehring J, Hochstrasser ML, Garcia G III, <b>MacQuarrie CD</b>, Matus DQ, McDaniel EA, McGeever E, Mishne G, Morin M, Radkov A, Reiter T, Reitman ME, Sun DA, Weiss ECP",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
@@ -100,7 +100,7 @@
     },
     {
       "title": "Phenotypic differences between interfertile <em>Chlamydomonas</em> species",
-      "authors": "Avasthi P, Braverman B, Essock-Burns T, Garcia G III, <b>MacQuarrie CD</b>, et al.",
+      "authors": "Avasthi P, Bigge BM, Braverman B, Celebi FM, Essock-Burns T, Hochstrasser ML, Garcia G III, <b>MacQuarrie CD</b>, Matus DQ, Mets DG, Reiter T, Wood H, York R",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
@@ -109,7 +109,7 @@
     },
     {
       "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
-      "authors": "Avasthi P, <b>MacQuarrie CD</b>, Radkov A",
+      "authors": "Avasthi P, Bigge BM, Hochstrasser ML, <b>MacQuarrie CD</b>, Radkov A",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
@@ -118,7 +118,7 @@
     },
     {
       "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
-      "authors": "Avasthi P, <b>MacQuarrie CD</b>",
+      "authors": "<b>MacQuarrie CD</b>, Avasthi P, Hochstrasser ML",
       "venue": "Arcadia Science",
       "year": 2022,
       "kind": "arcadia",
@@ -166,7 +166,7 @@
     },
     {
       "title": "An automated workflow for kit-based ELISAs",
-      "authors": "<b>MacQuarrie CD</b>, et al.",
+      "authors": "Bell A, Bircher J, Braverman B, Bulow C, Futia R, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
@@ -175,7 +175,7 @@
     },
     {
       "title": "The phenotype-o-mat: a flexible tool for collecting visual phenotypes",
-      "authors": "Braverman B, <b>MacQuarrie CD</b>, Mets DG, York R",
+      "authors": "Bell A, Braverman B, Hochstrasser ML, <b>MacQuarrie CD</b>, Mets DG, Reiter T, York R",
       "venue": "Arcadia Science",
       "year": 2024,
       "kind": "arcadia",

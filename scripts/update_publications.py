@@ -94,8 +94,6 @@ def format_authors(authors, surname):
         if family.lower() == surname.lower():
             name = "<b>" + name + "</b>"
         out.append(name)
-    if len(out) > 9:
-        out = out[:9] + ["et al."]
     return ", ".join(out)
 
 
