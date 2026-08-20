@@ -11,7 +11,7 @@
       "year": 2026,
       "kind": "arcadia",
       "doi": null,
-      "url": null
+      "url": "https://thestacks.org/publications/idea-crispr-landing-pads-chlamy"
     },
     {
       "title": "Morphological transformation of <em>Chlamydomonas smithii</em> grown in Marine Broth medium",
@@ -20,7 +20,7 @@
       "year": 2026,
       "kind": "arcadia",
       "doi": null,
-      "url": null
+      "url": "https://thestacks.org/publications/observation-marine-broth-chlamy"
     },
     {
       "title": "<em>Chlamydomonas</em> cpc1-1 mutant exhibits unexpected growth phenotypes",
@@ -29,7 +29,7 @@
       "year": 2025,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/observation-chlamy-cpc1-growth"
+      "url": "https://thestacks.org/publications/observation-chlamy-cpc1-growth"
     },
     {
       "title": "Rescuing <em>Chlamydomonas</em> motility in mutants modeling spermatogenic failure",
@@ -38,7 +38,7 @@
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-chlamy-spgf"
+      "url": "https://thestacks.org/publications/result-chlamy-spgf"
     },
     {
       "title": "Raman spectroscopy enables rapid and inexpensive exploration of biology",
@@ -47,7 +47,7 @@
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-easy-raman-spectroscopy"
+      "url": "https://thestacks.org/publications/result-easy-raman-spectroscopy"
     },
     {
       "title": "Morphological and motility differences in interfertile <em>Chlamydomonas</em> algal species: technological advancements in quantitative analysis",
@@ -96,7 +96,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/resource-protein-cartography"
+      "url": "https://thestacks.org/publications/resource-protein-cartography"
     },
     {
       "title": "Phenotypic differences between interfertile <em>Chlamydomonas</em> species",
@@ -105,7 +105,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-chlamydomonas-phenotypes"
+      "url": "https://thestacks.org/publications/result-chlamydomonas-phenotypes"
     },
     {
       "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
@@ -114,7 +114,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": "10.57844/arcadia-fh8f-xz51",
-      "url": null
+      "url": "https://thestacks.org/publications/result-phaeodactylum-morphology-cytoskeleton"
     },
     {
       "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
@@ -123,7 +123,7 @@
       "year": 2022,
       "kind": "arcadia",
       "doi": "10.57844/arcadia-eqg7-kf54",
-      "url": null
+      "url": "https://thestacks.org/publications/result-chlorarachniophyte-extensions"
     },
     {
       "title": "Mechanisms of Wiskott&ndash;Aldrich syndrome protein Wsp1 positioning and regulation at sites of endocytosis in <em>S. pombe</em>",
@@ -163,6 +163,24 @@
       "badge": "Preprint",
       "doi": "10.1101/389015",
       "url": null
+    },
+    {
+      "title": "An automated workflow for kit-based ELISAs",
+      "authors": "<b>MacQuarrie CD</b>, et al.",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://thestacks.org/publications/resource-cayman-his-elisa-opentrons-workflow"
+    },
+    {
+      "title": "The phenotype-o-mat: a flexible tool for collecting visual phenotypes",
+      "authors": "Braverman B, <b>MacQuarrie CD</b>, Mets DG, York R",
+      "venue": "Arcadia Science",
+      "year": 2024,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://thestacks.org/publications/method-automated-phenotype-imaging"
     }
   ]
 }

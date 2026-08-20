@@ -111,6 +111,8 @@ class Sim:
     D_MOVE = 150.0       # nm the patch must travel before Sla1 can shut Wsp1 down
     SCISSION_FRAC = 0.55 # fraction of peak actin at which the neck constricts
     RESEAL = 1500.0      # nm/s the tubule collapses after scission or failure
+    PINCH_TIME = 0.40    # s for the neck to constrict once disassembly starts
+    HOB1_REF = 500.0     # nm of invagination taken as the wild-type Hob1 level
 
     def __init__(self, width, height):
         self.w = float(width)
@@ -170,6 +172,7 @@ class Sim:
         self.retained = 1.0 if (g["myo1"] and g["myo1_sh3"]) else 0.0
         self.jitter = random.uniform(0.72, 1.32)
         self.phase = "growing"
+        self.pinch = 0.0
         self.flash = 0.0
         self.trace = []
 
@@ -264,10 +267,16 @@ class Sim:
                              self.t > T_ACTIN_ONSET + 1.5)
             if disassembling or self.t > MAX_LIFETIME:
                 if self.max_depth >= self.FAIL_BELOW:
-                    self._scission()
+                    # The BAR-domain collar constricts the neck.
+                    self.phase = "pinching"
                 else:
                     self.n_failed += 1
                     self.phase = "reseal"
+
+        elif self.phase == "pinching":
+            self.pinch = min(1.0, self.pinch + dt / self.PINCH_TIME)
+            if self.pinch >= 1.0:
+                self._scission()
         else:
             # Membrane reseals behind the departing vesicle, or the failed
             # invagination relaxes flat again.
@@ -288,7 +297,7 @@ class Sim:
             self._new_patch()
 
     def _scission(self):
-        """The neck pinches off and the vesicle leaves with its actin coat."""
+        """The neck has closed; the vesicle leaves with its actin coat."""
         self.depths.append(self.max_depth)
         if len(self.depths) > 40:
             self.depths.pop(0)
@@ -347,7 +356,8 @@ class Sim:
     def scene(self):
         shapes = []
         g = self.g
-        cx, mem, neck = self.CX, self.MEM_Y, self.NECK
+        cx, mem = self.CX, self.MEM_Y
+        neck = self.NECK * (1.0 - 0.94 * self.pinch)
         tip = mem + self.depth / NM_PER_PX
 
         # Cell exterior above the plasma membrane.
@@ -367,6 +377,22 @@ class Sim:
           shapes.append({"t": "curve", "x1": cx + neck, "y1": mem,
                        "cx": cx + neck * 0.5, "cy": tip, "x2": cx, "y2": tip,
                        "c": "accent2", "w": 2.4, "a": 0.9})
+
+        # Hob1 and Hob3 wrap the tubule along its whole length, which is why
+        # how much of them a patch accumulates reports the length of the
+        # invagination (Ch. 2 used exactly this as the readout).
+        if self.depth > 12.0:
+            rungs = int(min(16, max(2, (tip - mem) / 13.0)))
+            for i in range(rungs):
+                f = (i + 0.5) / rungs
+                y = mem + 6.0 + f * (tip - mem - 8.0)
+                half = neck * (1.0 - 0.45 * f) + 3.0
+                for side in (-1, 1):
+                    shapes.append({"t": "dot", "x": cx + side * half, "y": y,
+                                   "r": 2.6, "c": "cool", "a": 0.85})
+            shapes.append({"t": "text", "x": cx + neck + 22,
+                           "y": mem + (tip - mem) * 0.55,
+                           "s": "Hob1 / Hob3", "c": "cool"})
 
         # Vesicles that have pinched off, heading into the cytoplasm with
         # their actin coat still on them.
@@ -446,6 +472,7 @@ class Sim:
             "readout": [
                 {"label": "Mean internalisation", "value": "%d nm" % round(mean)},
                 {"label": "Vesicles released", "value": "%d of %d (%d%%)" % (self.n_released, total, round(pct))},
+                {"label": "Hob1 (invagination)", "value": "%d%% of WT" % round(100.0 * mean / self.HOB1_REF)},
                 {"label": "Peak actin", "value": "%.2f A.U." % self.peak_actin},
                 {"label": "Wsp1 at base", "value": "%d%%" % round(self.retained * 100)},
             ],

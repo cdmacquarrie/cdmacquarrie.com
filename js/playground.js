@@ -44,7 +44,8 @@
       accent: cs.getPropertyValue("--accent").trim() || "#42e2a4",
       accent2: cs.getPropertyValue("--accent-2").trim() || "#f26bd0",
       dim: cs.getPropertyValue("--muted").trim() || "#8d99aa",
-      warm: "#ffd479"
+      warm: "#ffd479",
+      cool: "#5b9dff"
     };
   }
   refreshPalette();

@@ -1,6 +1,16 @@
 {
-  "count": 18,
+  "count": 20,
   "entries": [
+    {
+      "title": "An automated workflow for kit-based ELISAs",
+      "authors": "<b>MacQuarrie CD</b>, et al.",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://thestacks.org/publications/resource-cayman-his-elisa-opentrons-workflow",
+      "source": "manual"
+    },
     {
       "title": "Marine Broth induces extreme morphological transformations in Chlamydomonas smithii",
       "authors": "<b>MacQuarrie C</b>",
@@ -18,7 +28,7 @@
       "year": 2026,
       "kind": "arcadia",
       "doi": null,
-      "url": null,
+      "url": "https://thestacks.org/publications/idea-crispr-landing-pads-chlamy",
       "source": "manual"
     },
     {
@@ -28,7 +38,7 @@
       "year": 2026,
       "kind": "arcadia",
       "doi": null,
-      "url": null,
+      "url": "https://thestacks.org/publications/observation-marine-broth-chlamy",
       "source": "manual"
     },
     {
@@ -38,7 +48,7 @@
       "year": 2025,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/observation-chlamy-cpc1-growth",
+      "url": "https://thestacks.org/publications/observation-chlamy-cpc1-growth",
       "source": "manual"
     },
     {
@@ -92,7 +102,7 @@
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-easy-raman-spectroscopy",
+      "url": "https://thestacks.org/publications/result-easy-raman-spectroscopy",
       "source": "manual"
     },
     {
@@ -102,7 +112,17 @@
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-chlamy-spgf",
+      "url": "https://thestacks.org/publications/result-chlamy-spgf",
+      "source": "manual"
+    },
+    {
+      "title": "The phenotype-o-mat: a flexible tool for collecting visual phenotypes",
+      "authors": "Braverman B, <b>MacQuarrie CD</b>, Mets DG, York R",
+      "venue": "Arcadia Science",
+      "year": 2024,
+      "kind": "arcadia",
+      "doi": null,
+      "url": "https://thestacks.org/publications/method-automated-phenotype-imaging",
       "source": "manual"
     },
     {
@@ -112,7 +132,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": "10.57844/arcadia-fh8f-xz51",
-      "url": null,
+      "url": "https://thestacks.org/publications/result-phaeodactylum-morphology-cytoskeleton",
       "source": "manual"
     },
     {
@@ -122,7 +142,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/result-chlamydomonas-phenotypes",
+      "url": "https://thestacks.org/publications/result-chlamydomonas-phenotypes",
       "source": "manual"
     },
     {
@@ -132,7 +152,7 @@
       "year": 2023,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://research.arcadiascience.com/pub/resource-protein-cartography",
+      "url": "https://thestacks.org/publications/resource-protein-cartography",
       "source": "manual"
     },
     {
@@ -142,7 +162,7 @@
       "year": 2022,
       "kind": "arcadia",
       "doi": "10.57844/arcadia-eqg7-kf54",
-      "url": null,
+      "url": "https://thestacks.org/publications/result-chlorarachniophyte-extensions",
       "source": "manual"
     },
     {

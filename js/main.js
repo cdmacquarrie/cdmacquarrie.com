@@ -95,9 +95,11 @@
   var status = document.getElementById("filterStatus");
 
   function filterPubs(kind) {
+    // A chip may cover several kinds, e.g. "journal,arcadia".
+    var wanted = kind.split(",");
     var shown = 0;
     pubs.forEach(function (p) {
-      var match = kind === "all" || p.dataset.kind === kind;
+      var match = kind === "all" || wanted.indexOf(p.dataset.kind) !== -1;
       p.hidden = !match;
       if (match) shown++;
     });
