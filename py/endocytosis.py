@@ -109,6 +109,8 @@ class Sim:
     SWIM_RATE = 0.10     # rate Sla1 captures freed PRDs
     FAIL_BELOW = 150.0   # nm; below this the patch never really internalised
     D_MOVE = 150.0       # nm the patch must travel before Sla1 can shut Wsp1 down
+    SCISSION_FRAC = 0.55 # fraction of peak actin at which the neck constricts
+    RESEAL = 1500.0      # nm/s the tubule collapses after scission or failure
 
     def __init__(self, width, height):
         self.w = float(width)
@@ -150,8 +152,10 @@ class Sim:
 
     def reset(self):
         self.clock = 0.0
+        self.free_vesicles = []
         self.depths = []
         self.n_failed = 0
+        self.n_released = 0
         self._new_patch()
 
     def _new_patch(self):
@@ -165,6 +169,8 @@ class Sim:
         self.peak_actin = 0.0
         self.retained = 1.0 if (g["myo1"] and g["myo1_sh3"]) else 0.0
         self.jitter = random.uniform(0.72, 1.32)
+        self.phase = "growing"
+        self.flash = 0.0
         self.trace = []
 
     # ---- model -----------------------------------------------------
@@ -228,51 +234,79 @@ class Sim:
         self.actin = max(0.0, self.actin + (assembly - decay * self.actin) * dt)
         self.peak_actin = max(self.peak_actin, self.actin)
 
-        # Force -> internalisation. Distance travelled is the readout.
-        # Force saturates with actin: the load is carried by the filaments
-        # oriented usefully against the membrane, not by the total polymer.
-        # This is why sla1D, which never switches Wsp1 off and so keeps
-        # building actin, still internalises a normal distance.
-        a2 = self.actin * self.actin
-        drive = a2 / (a2 + self.K_HALF * self.K_HALF)
-        force = self.K_ACTIN * drive * self._positioning()
-        if g["myo1"] and g["myo1_motor"]:
-            force += self.K_MYO * min(1.0, self.actin / 0.55)
-        # The tubule resists its own elongation: membrane tension and turgor
-        # pull back in proportion to how far it has been drawn in. Depth
-        # therefore settles where the actin push balances the load, which is
-        # what makes internalisation distance a readout of force.
-        load = self.LOAD * self.depth * self.params["turgor"]
-        self.depth = max(0.0, self.depth +
-                         (force * self.jitter - load) * dt)
-        # Distance travelled by the tip marker: how far it got before the
-        # vesicle pinched off, not where the collapsing tubule ends up.
-        self.max_depth = max(self.max_depth, self.depth)
+        # Force -> internalisation, but only while the tubule is still being
+        # pulled in. Once the neck constricts the geometry no longer applies.
+        if self.phase == "growing":
+            # Force saturates with actin: the load is carried by the filaments
+            # oriented usefully against the membrane, not by the total polymer.
+            # This is why sla1D, which never switches Wsp1 off and so keeps
+            # building actin, still internalises a normal distance.
+            a2 = self.actin * self.actin
+            drive = a2 / (a2 + self.K_HALF * self.K_HALF)
+            force = self.K_ACTIN * drive * self._positioning()
+            if g["myo1"] and g["myo1_motor"]:
+                force += self.K_MYO * min(1.0, self.actin / 0.55)
+            # The tubule resists its own elongation: membrane tension and turgor
+            # pull back in proportion to how far it has been drawn in.
+            load = self.LOAD * self.depth * self.params["turgor"]
+            self.depth = max(0.0, self.depth +
+                             (force * self.jitter - load) * dt)
+            self.max_depth = max(self.max_depth, self.depth)
 
-        if len(self.trace) < 900:
-            self.trace.append((self.t, self.actin, self.wsp1,
-                               self.retained, self.swim, self.depth))
+            if len(self.trace) < 900:
+                self.trace.append((self.t, self.actin, self.wsp1,
+                                   self.retained, self.swim, self.depth))
+
+            # Disassembly begins. Either the neck pinches off a vesicle, or the
+            # invagination was never drawn in far enough and simply relaxes back.
+            disassembling = (self.peak_actin > 0.12 and
+                             self.actin < self.SCISSION_FRAC * self.peak_actin and
+                             self.t > T_ACTIN_ONSET + 1.5)
+            if disassembling or self.t > MAX_LIFETIME:
+                if self.max_depth >= self.FAIL_BELOW:
+                    self._scission()
+                else:
+                    self.n_failed += 1
+                    self.phase = "reseal"
+        else:
+            # Membrane reseals behind the departing vesicle, or the failed
+            # invagination relaxes flat again.
+            self.depth = max(0.0, self.depth - self.RESEAL * dt)
+
+        # Released vesicles carry on into the cytoplasm.
+        for v in self.free_vesicles:
+            v["y"] += v["vy"] * dt
+            v["x"] += v["vx"] * dt
+            v["a"] -= 0.30 * dt
+        self.free_vesicles = [v for v in self.free_vesicles
+                              if v["a"] > 0.02 and v["y"] < self.h + 30]
+
+        self.flash = max(0.0, self.flash - dt)
         self.t += dt
 
-        spent = (self.peak_actin > 0.12 and self.actin < 0.12 * self.peak_actin
-                 and self.t > T_ACTIN_ONSET + 3.0)
-        if self.t > MAX_LIFETIME or spent:
-            self._finish_patch()
+        if self.phase == "reseal" and self.depth <= 0.5:
+            self._new_patch()
 
-    def _finish_patch(self):
-        if self.max_depth < self.FAIL_BELOW:
-            self.n_failed += 1
-        else:
-            self.depths.append(self.max_depth)
-            if len(self.depths) > 40:
-                self.depths.pop(0)
-        self._new_patch()
+    def _scission(self):
+        """The neck pinches off and the vesicle leaves with its actin coat."""
+        self.depths.append(self.max_depth)
+        if len(self.depths) > 40:
+            self.depths.pop(0)
+        self.n_released += 1
+        self.free_vesicles.append({
+            "x": self.CX + random.uniform(-6.0, 6.0),
+            "y": self.MEM_Y + self.depth / NM_PER_PX,
+            "vy": random.uniform(26.0, 42.0),
+            "vx": random.uniform(-10.0, 10.0),
+            "a": 1.0,
+        })
+        self.phase = "reseal"
+        self.flash = 0.9
 
     def _stats(self):
-        n_ok = len(self.depths)
-        total = n_ok + self.n_failed
-        mean = sum(self.depths) / n_ok if n_ok else 0.0
-        pct = (100.0 * n_ok / total) if total else 100.0
+        total = self.n_released + self.n_failed
+        mean = sum(self.depths) / len(self.depths) if self.depths else 0.0
+        pct = (100.0 * self.n_released / total) if total else 100.0
         return mean, pct, total
 
     # ---- rendering -------------------------------------------------
@@ -325,13 +359,28 @@ class Sim:
         shapes.append({"t": "line", "x1": cx + neck, "y1": mem, "x2": 545, "y2": mem,
                        "c": "accent2", "w": 2.4, "a": 0.9})
 
-        # The tubule.
-        shapes.append({"t": "curve", "x1": cx - neck, "y1": mem,
+        # The tubule. Gone once the vesicle has pinched off.
+        if self.depth > 2.0:
+          shapes.append({"t": "curve", "x1": cx - neck, "y1": mem,
                        "cx": cx - neck * 0.5, "cy": tip, "x2": cx, "y2": tip,
                        "c": "accent2", "w": 2.4, "a": 0.9})
-        shapes.append({"t": "curve", "x1": cx + neck, "y1": mem,
+          shapes.append({"t": "curve", "x1": cx + neck, "y1": mem,
                        "cx": cx + neck * 0.5, "cy": tip, "x2": cx, "y2": tip,
                        "c": "accent2", "w": 2.4, "a": 0.9})
+
+        # Vesicles that have pinched off, heading into the cytoplasm with
+        # their actin coat still on them.
+        for v in self.free_vesicles:
+            shapes.append({"t": "glow", "x": v["x"], "y": v["y"], "r": 34.0,
+                           "c": "accent", "a": 0.10 * v["a"]})
+            shapes.append({"t": "dot", "x": v["x"], "y": v["y"], "r": 14.0,
+                           "c": "accent2", "a": 0.55 * v["a"]})
+            shapes.append({"t": "dot", "x": v["x"], "y": v["y"], "r": 9.0,
+                           "c": "accent2", "a": 0.30 * v["a"]})
+
+        if self.flash > 0.0:
+            shapes.append({"t": "text", "x": cx + neck + 16, "y": mem + 44,
+                           "s": "scission", "c": "warm"})
 
         # Where Wsp1-Vrp1 currently sits: base while retained, tip once released.
         wy = mem + (1.0 - self.retained) * (tip - mem)
@@ -396,7 +445,7 @@ class Sim:
             "shapes": shapes,
             "readout": [
                 {"label": "Mean internalisation", "value": "%d nm" % round(mean)},
-                {"label": "Patches internalised", "value": "%d%% of %d" % (round(pct), total)},
+                {"label": "Vesicles released", "value": "%d of %d (%d%%)" % (self.n_released, total, round(pct))},
                 {"label": "Peak actin", "value": "%.2f A.U." % self.peak_actin},
                 {"label": "Wsp1 at base", "value": "%d%%" % round(self.retained * 100)},
             ],
