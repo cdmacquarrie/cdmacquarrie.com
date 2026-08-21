@@ -8,7 +8,9 @@
 
   var SIMS = {
     patch: { file: "py/endocytosis.py", label: "Endocytic patch" },
-    hunt:  { file: "py/hunt.py",        label: "Hunting cell" }
+    hunt:  { file: "py/hunt.py",        label: "Hunting cell" },
+    racer: { file: "py/racer.py",       label: "Motility racer" },
+    protoplast: { file: "py/protoplast.py", label: "Protoplast siege" }
   };
 
   var canvas = document.getElementById("pgCanvas");
