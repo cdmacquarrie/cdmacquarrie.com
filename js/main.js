@@ -148,6 +148,9 @@
       img.alt = item.caption;
       img.loading = i === 0 ? "eager" : "lazy";
       img.decoding = "async";
+      // A file that is not really an image (an empty placeholder, say) would
+      // otherwise sit in the rotation as a blank slide. Drop it instead.
+      img.addEventListener("error", function () { dropSlide(img); });
       if (i === 0) img.classList.add("is-on");
       track.appendChild(img);
       slides.push(img);
@@ -168,6 +171,26 @@
     start();
   } else if (carousel) {
     carousel.closest("section").hidden = true;
+  }
+
+  function dropSlide(img) {
+    var i = slides.indexOf(img);
+    if (i === -1) return;
+    slides.splice(i, 1);
+    items.splice(i, 1);
+    img.remove();
+    if (carDots.children[i]) carDots.children[i].remove();
+    if (!slides.length) {
+      stop();
+      carousel.closest("section").hidden = true;
+      return;
+    }
+    if (slides.length < 2) {
+      carDots.hidden = true;
+      document.getElementById("carPrev").hidden = true;
+      document.getElementById("carNext").hidden = true;
+    }
+    show(Math.min(current, slides.length - 1));
   }
 
   function show(i) {
