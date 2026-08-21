@@ -109,14 +109,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin-right: auto;
 }
 .brand-mark {
-  width: 18px; height: 18px; border-radius: 50%; flex: none;
-  border: 2px solid var(--accent);
-  position: relative;
-  box-shadow: var(--glow);
-}
-.brand-mark::after {
-  content: ""; position: absolute; inset: 4px;
-  border-radius: 50%; background: var(--accent-2);
+  width: 24px; height: 24px; flex: none;
+  display: block;
 }
 .brand-text { font-size: .98rem; }
 

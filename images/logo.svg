@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Radial cladogram of the organisms Cameron MacQuarrie has worked with">
+  <title>Cameron MacQuarrie</title>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#8d99aa" stroke-width="1" opacity=".38"/>
+  <g fill="none" stroke-width="1.6" stroke-linecap="round">
+    <path d="M32 32 L35.74 27.31" stroke="#e055b8"/>
+    <path d="M32 32 L28.26 36.69" stroke="#8d99aa"/>
+    <g stroke="#e055b8">
+      <path d="M35.74 27.31 L32 10"/>
+      <path d="M35.74 27.31 L40.60 25.14"/>
+      <path d="M40.60 25.14 L53.45 27.11"/>
+      <path d="M40.60 25.14 L41.98 19.49"/>
+      <path d="M41.98 19.49 L41.55 12.18"/>
+      <path d="M41.98 19.49 L49.20 18.28"/>
+    </g>
+    <g stroke="#2fc994">
+      <path d="M28.26 36.69 L37.21 42.81"/>
+      <path d="M37.21 42.81 L53.45 36.89"/>
+      <path d="M37.21 42.81 L35.56 47.60"/>
+      <path d="M35.56 47.60 L49.20 45.72"/>
+      <path d="M35.56 47.60 L32 50"/>
+      <path d="M32 50 L41.55 51.82"/>
+      <path d="M32 50 L27.55 51.50"/>
+      <path d="M27.55 51.50 L32 54"/>
+      <path d="M27.55 51.50 L22.45 51.82"/>
+    </g>
+    <path d="M28.26 36.69 L14.80 45.72" stroke="#e0a13c"/>
+    <g stroke="#4a8fe0">
+      <path d="M28.26 36.69 L21.19 26.79"/>
+      <path d="M21.19 26.79 L22.45 12.18"/>
+      <path d="M21.19 26.79 L16.89 28.55"/>
+      <path d="M16.89 28.55 L14.80 18.28"/>
+      <path d="M16.89 28.55 L13 32"/>
+      <path d="M13 32 L10.55 36.89"/>
+      <path d="M13 32 L10.55 27.11"/>
+    </g>
+  </g>
+  <g>
+    <circle cx="32" cy="10" r="2" fill="#e055b8"/>
+    <circle cx="41.55" cy="12.18" r="2" fill="#e055b8"/>
+    <circle cx="49.20" cy="18.28" r="2" fill="#e055b8"/>
+    <circle cx="53.45" cy="27.11" r="2" fill="#e055b8"/>
+    <circle cx="53.45" cy="36.89" r="2" fill="#2fc994"/>
+    <circle cx="49.20" cy="45.72" r="2" fill="#2fc994"/>
+    <circle cx="41.55" cy="51.82" r="2" fill="#2fc994"/>
+    <circle cx="32" cy="54" r="2" fill="#2fc994"/>
+    <circle cx="22.45" cy="51.82" r="2" fill="#2fc994"/>
+    <circle cx="14.80" cy="45.72" r="2" fill="#e0a13c"/>
+    <circle cx="10.55" cy="36.89" r="2" fill="#4a8fe0"/>
+    <circle cx="10.55" cy="27.11" r="2" fill="#4a8fe0"/>
+    <circle cx="14.80" cy="18.28" r="2" fill="#4a8fe0"/>
+    <circle cx="22.45" cy="12.18" r="2" fill="#4a8fe0"/>
+  </g>
+  <circle cx="32" cy="32" r="1.7" fill="#8d99aa"/>
+</svg>
