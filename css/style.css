@@ -481,3 +481,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-lede.is-lead a { color: var(--text); text-decoration-color: var(--accent); }
 .hero .hero-inner { padding-block: clamp(2.5rem, 8vh, 5rem); }
 .hero { min-height: min(68svh, 620px); }
+
+/* ============ ORGANISMS PER STAGE ============
+   Silhouettes from Arcadia's organism illustration library (CC0),
+   recoloured to the supergroup palette used by the logo. */
+.organisms {
+  flex-basis: 100%; display: flex; flex-wrap: wrap; gap: .9rem 1.3rem;
+  margin: .8rem 0 .3rem; padding-left: 6.3rem; list-style: none;
+}
+.organisms li { display: flex; flex-direction: column; align-items: center; gap: .25rem; width: 62px; }
+.organisms img { width: 30px; height: 30px; display: block; opacity: .92; }
+.organisms span {
+  font-family: var(--serif); font-style: italic; font-size: .68rem;
+  color: var(--muted); text-align: center; line-height: 1.25;
+}
+@media (max-width: 760px) { .organisms { padding-left: 0; } }
