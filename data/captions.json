@@ -8,8 +8,6 @@
   "pombe-pombae.jpg": "S. pomBAE",
   "anim-cytoskeleton.gif": "Cytoskeletal animation",
   "anim-actin-nucleation.gif": "Spontaneous actin nucleation",
-  "pombe-patches.jpg": "Live S. pombe: GFP-tagged endocytic marker with mCherry-marked patches",
-  "pombe_patches.jpg": "Live S. pombe: GFP-tagged endocytic marker with mCherry-marked patches",
-  "pombe-patches.png": "Live S. pombe: GFP-tagged endocytic marker with mCherry-marked patches",
-  "pombe_patches.png": "Live S. pombe: GFP-tagged endocytic marker with mCherry-marked patches"
+  "pombe-myo1-fimbrin.webp": "Live S. pombe expressing GFP-tagged myosin-1 and mCherry-tagged fimbrin",
+  "pombe-lifeact.webp": "Live S. pombe expressing LifeAct-GFP"
 }

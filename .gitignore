@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 .venv/
 node_modules/
+
+# full-size source movies, kept locally only
+images/gallery/_originals/
