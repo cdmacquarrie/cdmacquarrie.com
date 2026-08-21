@@ -7,8 +7,13 @@
 }
 .prev-list { display: grid; gap: .55rem; }
 .prev-list li { display: flex; gap: 1.1rem; font-size: .93rem; flex-wrap: wrap; }
-.prev-when { color: var(--accent); font-variant-numeric: tabular-nums; flex: none; min-width: 5.2rem; }
+.prev-when { color: var(--accent); font-variant-numeric: tabular-nums; flex: none; min-width: 7.4rem; }
 .prev-what { color: var(--muted); }
+.prev-note {
+  flex-basis: 100%; padding-left: 8.5rem; margin-top: .2rem;
+  font-size: .8rem; color: var(--muted); opacity: .85;
+}
+@media (max-width: 760px) { .prev-note { padding-left: 0; } }
 .prev-what a { color: var(--text); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 
 /* ============ PLAYGROUND ============ */
