@@ -1,6 +1,5 @@
 {
   "_comment": "filename in images/gallery/  ->  caption shown under the image. Anything not listed gets a caption derived from its filename. These keys are pre-filled with the captions from the old Google Sites galleries; save the files under these names and the captions attach themselves.",
-
   "pombe-myosin1-fimbrin.jpg": "Live S. pombe expressing GFP-tagged myosin-1 and mCherry-tagged fimbrin",
   "pombe-lifeact.jpg": "Live S. pombe expressing LifeAct-GFP",
   "pombe-contractile-ring.jpg": "Sonic the Hedgehog chasing a contractile ring marked by Cdc15-mGFP",
@@ -8,5 +7,6 @@
   "pombe-sunflower.jpg": "Sunflower - fission yeast cells crowding an air bubble on the coverslip",
   "pombe-pombae.jpg": "S. pomBAE",
   "anim-cytoskeleton.gif": "Cytoskeletal animation",
-  "anim-actin-nucleation.gif": "Spontaneous actin nucleation"
+  "anim-actin-nucleation.gif": "Spontaneous actin nucleation",
+  "pombe-patches.jpg": "Live S. pombe: GFP-tagged endocytic marker with mCherry-marked patches"
 }

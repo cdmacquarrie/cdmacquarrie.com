@@ -175,19 +175,19 @@
     <div class="previously reveal">
       <h3 class="prev-title">Previously</h3>
       <ul class="prev-list">
-        <li><span class="prev-when">2021&ndash;</span> <span class="prev-what">Arcadia Science &middot; Emeryville, CA</span>
+        <li><span class="prev-when">2021&ndash;present</span> <span class="prev-what">Scientist &middot; Arcadia Science &middot; Emeryville, CA</span>
         
           <ul class="organisms"><li><img src="images/organisms/chlamydomonas.svg" alt="" width="30" height="30" loading="lazy"><span>Chlamydomonas</span></li><li><img src="images/organisms/volvox.svg" alt="" width="30" height="30" loading="lazy"><span>Volvox</span></li><li><img src="images/organisms/chlorella.svg" alt="" width="30" height="30" loading="lazy"><span>Chlorella</span></li><li><img src="images/organisms/tetraselmis.svg" alt="" width="30" height="30" loading="lazy"><span>Tetraselmis</span></li><li><img src="images/organisms/micromonas.svg" alt="" width="30" height="30" loading="lazy"><span>Micromonas</span></li><li><img src="images/organisms/isochrysis.svg" alt="" width="30" height="30" loading="lazy"><span>Isochrysis</span></li><li><img src="images/organisms/phaeodactylum.svg" alt="" width="30" height="30" loading="lazy"><span>Phaeodactylum</span></li><li><img src="images/organisms/nannochloropsis.svg" alt="" width="30" height="30" loading="lazy"><span>Nannochloropsis</span></li><li><img src="images/organisms/paramecium.svg" alt="" width="30" height="30" loading="lazy"><span>Paramecium</span></li><li><img src="images/organisms/tetrahymena.svg" alt="" width="30" height="30" loading="lazy"><span>Tetrahymena</span></li><li><img src="images/organisms/euglena.svg" alt="" width="30" height="30" loading="lazy"><span>Euglena</span></li><li><img src="images/organisms/dictyostelium.svg" alt="" width="30" height="30" loading="lazy"><span>Dictyostelium</span></li><li><img src="images/organisms/candida.svg" alt="" width="30" height="30" loading="lazy"><span>Candida albicans</span></li></ul>
         </li>
-        <li><span class="prev-when">2020&ndash;21</span> <span class="prev-what">Postdoc, Avasthi Lab &middot; Geisel School of Medicine at Dartmouth</span>
+        <li><span class="prev-when">2020&ndash;21</span> <span class="prev-what">Postdoc, Avasthi Lab &middot; Geisel School of Medicine at Dartmouth &middot; Hanover, NH</span>
         
           <ul class="organisms"><li><img src="images/organisms/chlamydomonas.svg" alt="" width="30" height="30" loading="lazy"><span>Chlamydomonas</span></li></ul>
         </li>
-        <li><span class="prev-when">2014&ndash;20</span> <span class="prev-what">PhD with Vladimir Sirotkin &middot; SUNY Upstate Medical University &middot; <a href="https://soar.suny.edu/handle/20.500.12648/1464" target="_blank" rel="noopener">thesis</a></span>
+        <li><span class="prev-when">2014&ndash;20</span> <span class="prev-what">PhD, Sirotkin Lab &middot; SUNY Upstate Medical University &middot; Syracuse, NY &middot; <a href="https://soar.suny.edu/handle/20.500.12648/1464" target="_blank" rel="noopener">thesis</a></span>
         
           <ul class="organisms"><li><img src="images/organisms/pombe.svg" alt="" width="30" height="30" loading="lazy"><span>S. pombe</span></li><li><img src="images/organisms/human.svg" alt="" width="30" height="30" loading="lazy"><span>human cell lines</span></li><li><img src="images/organisms/mouse.svg" alt="" width="30" height="30" loading="lazy"><span>mouse</span></li></ul>
         </li>
-        <li><span class="prev-when">2010&ndash;14</span> <span class="prev-what">B.Sc. Molecular Biology &middot; Lipscomb University</span>
+        <li><span class="prev-when">2010&ndash;14</span> <span class="prev-what">B.Sc. Molecular Biology &middot; Lipscomb University &middot; Nashville, TN</span>
         
           <ul class="organisms"><li><img src="images/organisms/celegans.svg" alt="" width="30" height="30" loading="lazy"><span>C. elegans</span></li><li><img src="images/organisms/human.svg" alt="" width="30" height="30" loading="lazy"><span>human cell lines</span></li></ul>
         </li>
@@ -468,7 +468,15 @@
         loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <div class="gallery-grid" id="galleryGrid"></div>
+    <div class="carousel" id="carousel" hidden>
+      <div class="car-frame">
+        <button class="car-nav car-prev" id="carPrev" aria-label="Previous image">&#8249;</button>
+        <div class="car-track" id="carTrack"></div>
+        <button class="car-nav car-next" id="carNext" aria-label="Next image">&#8250;</button>
+      </div>
+      <p class="car-caption" id="carCaption"></p>
+      <div class="car-dots" id="carDots"></div>
+    </div>
     <noscript><p class="section-intro">Enable JavaScript to view the gallery.</p></noscript>
   </div>
 </section>

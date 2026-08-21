@@ -125,32 +125,78 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /* ---------- gallery + lightbox ---------- */
-  var grid = document.getElementById("galleryGrid");
+  /* ---------- carousel + lightbox ---------- */
+  var carousel = document.getElementById("carousel");
+  var track = document.getElementById("carTrack");
+  var carCaption = document.getElementById("carCaption");
+  var carDots = document.getElementById("carDots");
   var items = (window.GALLERY || []);
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lbImg");
   var lbCap = document.getElementById("lbCap");
   var current = 0;
   var lastFocused = null;
+  var slides = [];
+  var timer = 0;
+  var DWELL = 5000;
 
-  if (grid && items.length) {
-    var frag = document.createDocumentFragment();
+  if (carousel && items.length) {
+    carousel.hidden = false;
     items.forEach(function (item, i) {
-      var btn = document.createElement("button");
-      btn.className = "gal-item";
-      btn.type = "button";
-      btn.setAttribute("aria-label", "Enlarge: " + item.caption);
-      btn.innerHTML =
-        '<img src="' + item.src + '" alt="' + item.caption.replace(/"/g, "&quot;") +
-        '" loading="lazy" decoding="async">' +
-        '<span class="gal-cap">' + item.caption + "</span>";
-      btn.addEventListener("click", function () { openLightbox(i); });
-      frag.appendChild(btn);
+      var img = document.createElement("img");
+      img.src = item.src;
+      img.alt = item.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      if (i === 0) img.classList.add("is-on");
+      track.appendChild(img);
+      slides.push(img);
+
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Image " + (i + 1) + " of " + items.length);
+      if (i === 0) dot.classList.add("is-on");
+      dot.addEventListener("click", function () { show(i); restart(); });
+      carDots.appendChild(dot);
     });
-    grid.appendChild(frag);
-  } else if (grid) {
-    grid.closest("section").hidden = true;
+    if (items.length < 2) {
+      carDots.hidden = true;
+      document.getElementById("carPrev").hidden = true;
+      document.getElementById("carNext").hidden = true;
+    }
+    show(0);
+    start();
+  } else if (carousel) {
+    carousel.closest("section").hidden = true;
+  }
+
+  function show(i) {
+    if (!slides.length) return;
+    current = (i + slides.length) % slides.length;
+    slides.forEach(function (s, n) { s.classList.toggle("is-on", n === current); });
+    Array.prototype.forEach.call(carDots.children, function (d, n) {
+      d.classList.toggle("is-on", n === current);
+    });
+    carCaption.textContent = items[current].caption;
+  }
+  function start() {
+    if (reduceMotion || slides.length < 2) return;
+    timer = setInterval(function () { show(current + 1); }, DWELL);
+  }
+  function stop() { clearInterval(timer); timer = 0; }
+  function restart() { stop(); start(); }
+
+  if (carousel && slides.length) {
+    document.getElementById("carPrev").addEventListener("click", function () { show(current - 1); restart(); });
+    document.getElementById("carNext").addEventListener("click", function () { show(current + 1); restart(); });
+    carousel.addEventListener("pointerenter", stop);
+    carousel.addEventListener("pointerleave", start);
+    carousel.addEventListener("focusin", stop);
+    carousel.addEventListener("focusout", start);
+    track.addEventListener("click", function () { openLightbox(current); });
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else start();
+    });
   }
 
   function showImage(i) {
@@ -161,6 +207,7 @@
   }
   function openLightbox(i) {
     if (!lb) return;
+    stop();
     lastFocused = document.activeElement;
     showImage(i);
     lb.hidden = false;
@@ -172,6 +219,8 @@
     lb.hidden = true;
     document.body.style.overflow = "";
     if (lastFocused) lastFocused.focus();
+    show(current);
+    start();
   }
 
   if (lb) {

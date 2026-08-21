@@ -487,7 +487,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    recoloured to the supergroup palette used by the logo. */
 .organisms {
   flex-basis: 100%; display: flex; flex-wrap: wrap; gap: .9rem 1.3rem;
-  margin: .8rem 0 .3rem; padding-left: 6.3rem; list-style: none;
+  margin: .8rem 0 .3rem; padding-left: 8.5rem; list-style: none;
 }
 .organisms li { display: flex; flex-direction: column; align-items: center; gap: .25rem; width: 62px; }
 .organisms img { width: 30px; height: 30px; display: block; opacity: .92; }
@@ -496,3 +496,41 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--muted); text-align: center; line-height: 1.25;
 }
 @media (max-width: 760px) { .organisms { padding-left: 0; } }
+
+/* ============ CAROUSEL ============ */
+.carousel[hidden] { display: none; }
+.carousel { margin-bottom: 2rem; }
+.car-frame { position: relative; display: flex; align-items: center; gap: .8rem; }
+.car-track {
+  position: relative; flex: 1; min-width: 0;
+  aspect-ratio: 1 / 1; max-height: 620px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: var(--bg-2); cursor: zoom-in;
+}
+.car-track img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; opacity: 0;
+  transition: opacity .6s var(--ease);
+}
+.car-track img.is-on { opacity: 1; }
+.car-nav {
+  flex: none; width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+.car-nav:hover { background: var(--surface-2); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+.car-caption {
+  margin: .9rem 0 0; font-size: .84rem; color: var(--muted);
+  text-align: center; min-height: 1.4em;
+}
+.car-dots { display: flex; justify-content: center; gap: .4rem; margin-top: .7rem; flex-wrap: wrap; }
+.car-dots button {
+  width: 7px; height: 7px; padding: 0; border-radius: 50%; cursor: pointer;
+  border: 0; background: var(--border);
+  transition: background .2s var(--ease), transform .2s var(--ease);
+}
+.car-dots button.is-on { background: var(--accent); transform: scale(1.3); }
+@media (max-width: 620px) {
+  .car-nav { width: 34px; height: 34px; font-size: 1.2rem; }
+}
