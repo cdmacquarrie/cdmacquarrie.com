@@ -550,3 +550,40 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 760px) {
   .footer-mark { width: 88px; height: 88px; margin-bottom: 1.1rem; }
 }
+
+/* ============ FIGURE PALETTE ============
+   Validated against both surfaces with the data-viz checks: every slot sits in
+   its mode's lightness band, clears the chroma floor and the CVD and
+   normal-vision separation gates. Three light slots fall under 3:1 contrast,
+   so every bar carries a visible value label - that is the required relief,
+   not an optional nicety. */
+:root {
+  --viz-1: #2a78d6; --viz-2: #eb6834; --viz-3: #1baf7a;
+  --viz-4: #eda100; --viz-5: #e87ba4;
+  --viz-neg: #e34948; --viz-mid: #e6e4df; --viz-on-mid: #52514e;
+  --viz-ink: #14181d; --viz-muted: #5b6473; --viz-grid: rgba(15,20,28,.10);
+}
+:root[data-theme="dark"] {
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-3: #199e70;
+  --viz-4: #c98500; --viz-5: #d55181;
+  --viz-neg: #e66767; --viz-mid: #3a3f46; --viz-on-mid: #8d99aa;
+  --viz-ink: #e9edf3; --viz-muted: #8d99aa; --viz-grid: rgba(255,255,255,.09);
+}
+
+/* ============ PUBLICATION FIGURES ============ */
+.pub-fig {
+  margin: .9rem 0 .2rem; padding: 1rem 1.1rem .9rem;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--bg-2);
+}
+.pub-fig figcaption {
+  font-size: .8rem; color: var(--muted); margin-bottom: .9rem; max-width: 60ch; line-height: 1.55;
+}
+.pub-fig svg { display: block; width: 100%; height: auto; }
+.pub details > summary {
+  cursor: pointer; font-size: .78rem; color: var(--muted); list-style: none;
+  padding: .4rem 0; user-select: none;
+}
+.pub details > summary::-webkit-details-marker { display: none; }
+.pub details > summary::before { content: "\25B8"; display: inline-block; margin-right: .45rem; transition: rotate .2s var(--ease); }
+.pub details[open] > summary::before { rotate: 90deg; }
+.pub details > summary:hover { color: var(--text); }

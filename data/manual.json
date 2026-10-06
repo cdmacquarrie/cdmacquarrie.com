@@ -16,7 +16,7 @@
     },
     {
       "title": "Modular CRISPR landing pads for <em>Chlamydomonas reinhardtii</em>",
-      "authors": "Futia R, Bigge BM, Caddell D, <b>MacQuarrie CD</b>, Bulow C, Bell A",
+      "authors": "Bigge BM, <b>MacQuarrie CD</b>, Bulow C, Futia R, Caddell D",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
@@ -25,7 +25,7 @@
     },
     {
       "title": "Morphological transformation of <em>Chlamydomonas smithii</em> grown in Marine Broth medium",
-      "authors": "Bell A, Lane R, <b>MacQuarrie CD</b>, Mets DG",
+      "authors": "Mets DG, <b>MacQuarrie CD</b>",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
@@ -34,7 +34,7 @@
     },
     {
       "title": "<em>Chlamydomonas</em> cpc1-1 mutant exhibits unexpected growth phenotypes",
-      "authors": "Bell A, Hochstrasser ML, <b>MacQuarrie CD</b>, Mets DG",
+      "authors": "Mets DG, <b>MacQuarrie CD</b>",
       "venue": "Arcadia Science",
       "year": 2025,
       "kind": "arcadia",
@@ -43,21 +43,32 @@
     },
     {
       "title": "Rescuing <em>Chlamydomonas</em> motility in mutants modeling spermatogenic failure",
-      "authors": "Bell A, Essock-Burns T, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>, Mets DG",
+      "authors": "Mets DG, <b>MacQuarrie CD</b>, Essock-Burns T, Lane R",
       "venue": "Arcadia Science",
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://thestacks.org/publications/result-chlamy-spgf"
+      "url": "https://thestacks.org/publications/result-chlamy-spgf",
+      "figures": [
+        {
+          "file": "spgf-deficits",
+          "caption": "The two mutants are not slower in the same way: cpc1-1 loses more speed, ida4 more sprint."
+        },
+        {
+          "file": "spgf-drugs",
+          "caption": "Six compounds at 50 µM. Rescue is mutation-specific — linsitinib improves cpc1-1 and makes ida4 worse; only Torin2 helps both."
+        }
+      ]
     },
     {
       "title": "Raman spectroscopy enables rapid and inexpensive exploration of biology",
-      "authors": "Avasthi P, Bell A, Bigge BM, Braverman B, Essock-Burns T, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>, Mets DG, Patton AH, Sun DA, Wood H, York R",
+      "authors": "Avasthi P, Patton AH, Mets DG, Bigge BM, York R, Braverman B, Essock-Burns T, Lane R",
       "venue": "Arcadia Science",
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://thestacks.org/publications/result-easy-raman-spectroscopy"
+      "url": "https://thestacks.org/publications/result-easy-raman-spectroscopy",
+      "badge": "Contributor"
     },
     {
       "title": "Morphological and motility differences in interfertile <em>Chlamydomonas</em> algal species: technological advancements in quantitative analysis",
@@ -101,16 +112,17 @@
     },
     {
       "title": "ProteinCartography: comparing proteins with structure-based maps for interactive exploration",
-      "authors": "Avasthi P, Bigge BM, Borges AL, Celebi FM, Cheveralls K, Dutton RJ, Gehring J, Hochstrasser ML, Garcia G III, <b>MacQuarrie CD</b>, Matus DQ, McDaniel EA, McGeever E, Mishne G, Morin M, Radkov A, Reiter T, Reitman ME, Sun DA, Weiss ECP",
+      "authors": "Avasthi P, Celebi FM, Cheveralls K, Bigge BM, Radkov A, Sun DA, Gehring J, McGeever E, Mishne G",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://thestacks.org/publications/resource-protein-cartography"
+      "url": "https://thestacks.org/publications/resource-protein-cartography",
+      "badge": "Contributor"
     },
     {
       "title": "Phenotypic differences between interfertile <em>Chlamydomonas</em> species",
-      "authors": "Avasthi P, Bigge BM, Braverman B, Celebi FM, Essock-Burns T, Hochstrasser ML, Garcia G III, <b>MacQuarrie CD</b>, Matus DQ, Mets DG, Reiter T, Wood H, York R",
+      "authors": "Avasthi P, Mets DG, York R, Braverman B, <b>MacQuarrie CD</b>, Essock-Burns T, Matus DQ, Garcia G III",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
@@ -119,16 +131,22 @@
     },
     {
       "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
-      "authors": "Avasthi P, Bigge BM, Hochstrasser ML, <b>MacQuarrie CD</b>, Radkov A",
+      "authors": "Avasthi P, Radkov A, <b>MacQuarrie CD</b>",
       "venue": "Arcadia Science",
       "year": 2023,
       "kind": "arcadia",
       "doi": "10.57844/arcadia-fh8f-xz51",
-      "url": "https://thestacks.org/publications/result-phaeodactylum-morphology-cytoskeleton"
+      "url": "https://thestacks.org/publications/result-phaeodactylum-morphology-cytoskeleton",
+      "figures": [
+        {
+          "file": "protoplast-yield",
+          "caption": "Alcalase works reliably. The cytoskeletal inhibitors gave about 50% protoplasts in the first two trials and 0% on every attempt afterwards."
+        }
+      ]
     },
     {
       "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
-      "authors": "<b>MacQuarrie CD</b>, Avasthi P, Hochstrasser ML",
+      "authors": "Avasthi P, <b>MacQuarrie CD</b>",
       "venue": "Arcadia Science",
       "year": 2022,
       "kind": "arcadia",
@@ -143,7 +161,13 @@
       "kind": "preprint",
       "badge": "Thesis",
       "doi": null,
-      "url": "https://soar.suny.edu/handle/20.500.12648/1464"
+      "url": "https://soar.suny.edu/handle/20.500.12648/1464",
+      "figures": [
+        {
+          "file": "vrp1-loss",
+          "caption": "Chapter 3. Losing Vrp1 costs the patch about a third of its actin and a third of its reach. Bars are the midpoint of each reported range: actin 33–43%, internalisation 28–40%, Hob1 25–29%."
+        }
+      ]
     },
     {
       "title": "The <em>S. pombe</em> adaptor protein Bbc1 regulates localization of Wsp1 and Vrp1 during endocytic actin patch assembly",
@@ -152,7 +176,13 @@
       "year": 2019,
       "kind": "journal",
       "doi": "10.1242/jcs.233502",
-      "url": null
+      "url": null,
+      "figures": [
+        {
+          "file": "bbc1-internalisation",
+          "caption": "Distance travelled by the tip markers End4 and Ent1, the readout for force generated. Deleting Bbc1 doubles it; removing the Myo1 SH3 domain that retains Wsp1 cancels that again."
+        }
+      ]
     },
     {
       "title": "First person &ndash; Cameron MacQuarrie",
@@ -176,21 +206,23 @@
     },
     {
       "title": "An automated workflow for kit-based ELISAs",
-      "authors": "Bell A, Bircher J, Braverman B, Bulow C, Futia R, Hochstrasser ML, Lane R, <b>MacQuarrie CD</b>",
+      "authors": "Braverman B, Bulow C, Futia R",
       "venue": "Arcadia Science",
       "year": 2026,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://thestacks.org/publications/resource-cayman-his-elisa-opentrons-workflow"
+      "url": "https://thestacks.org/publications/resource-cayman-his-elisa-opentrons-workflow",
+      "badge": "Contributor"
     },
     {
       "title": "The phenotype-o-mat: a flexible tool for collecting visual phenotypes",
-      "authors": "Bell A, Braverman B, Hochstrasser ML, <b>MacQuarrie CD</b>, Mets DG, Reiter T, York R",
+      "authors": "Mets DG, York R, Braverman B",
       "venue": "Arcadia Science",
       "year": 2024,
       "kind": "arcadia",
       "doi": null,
-      "url": "https://thestacks.org/publications/method-automated-phenotype-imaging"
+      "url": "https://thestacks.org/publications/method-automated-phenotype-imaging",
+      "badge": "Contributor"
     }
   ]
 }

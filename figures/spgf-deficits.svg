@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 126" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" class="viz">
+<text x="183" y="32.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">ida4  (DNALI1 / SPGF83)</text>
+<g><title>ida4  (DNALI1 / SPGF83) mean linear speed: 44% below WT</title><rect x="195" y="16.0" width="232.4" height="13" rx="4" fill="var(--viz-1)"/></g>
+<text x="435.4" y="26.5" fill="var(--viz-ink)" font-size="11">44% below WT</text>
+<g><title>ida4  (DNALI1 / SPGF83) longest sprint: 45% below WT</title><rect x="195" y="33.0" width="237.7" height="13" rx="4" fill="var(--viz-2)"/></g>
+<text x="440.7" y="43.5" fill="var(--viz-ink)" font-size="11">45% below WT</text>
+<text x="183" y="78.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">cpc1-1  (SPEF2 / SPGF43)</text>
+<g><title>cpc1-1  (SPEF2 / SPGF43) mean linear speed: 56% below WT</title><rect x="195" y="62.0" width="295.8" height="13" rx="4" fill="var(--viz-1)"/></g>
+<text x="498.8" y="72.5" fill="var(--viz-ink)" font-size="11">56% below WT</text>
+<g><title>cpc1-1  (SPEF2 / SPGF43) longest sprint: 30% below WT</title><rect x="195" y="79.0" width="158.5" height="13" rx="4" fill="var(--viz-2)"/></g>
+<text x="361.5" y="89.5" fill="var(--viz-ink)" font-size="11">30% below WT</text>
+<rect x="195" y="111" width="10" height="10" rx="3" fill="var(--viz-1)"/>
+<text x="211" y="120" fill="var(--viz-muted)" font-size="11">mean linear speed</text>
+<rect x="327" y="111" width="10" height="10" rx="3" fill="var(--viz-2)"/>
+<text x="343" y="120" fill="var(--viz-muted)" font-size="11">longest sprint</text>
+</svg>

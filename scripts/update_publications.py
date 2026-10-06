@@ -294,6 +294,20 @@ def render_entry(e):
                     'target="_blank" rel="noopener">Find it</a>' % q)
 
     bits.append('          <p class="pub-meta">%s</p>' % "\n            ".join(meta))
+
+    # A summary figure sits with the paper it came from. The SVG is inlined so
+    # its colours follow the site's light/dark toggle.
+    for fig in e.get("figures") or []:
+        path = os.path.join(ROOT, "figures", fig["file"] + ".svg")
+        if not os.path.exists(path):
+            continue
+        with open(path, "r", encoding="utf-8") as fh:
+            svg = fh.read().strip()
+        bits.append('          <figure class="pub-fig">')
+        bits.append('            <figcaption>%s</figcaption>' % fig.get("caption", ""))
+        bits.append("            " + svg)
+        bits.append("          </figure>")
+
     bits.append("        </li>")
     return "\n".join(bits)
 

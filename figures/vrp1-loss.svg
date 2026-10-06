@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 113" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" class="viz">
+<text x="178" y="25.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">patch actin</text>
+<g><title>Reduced 33-43%</title><rect x="190" y="14.0" width="303.4" height="15" rx="4" fill="var(--viz-3)"/></g>
+<text x="502.4" y="25.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">38% lower</text>
+<text x="178" y="54.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">End4 internalisation</text>
+<g><title>Reduced 28-40%</title><rect x="190" y="43.0" width="271.5" height="15" rx="4" fill="var(--viz-3)"/></g>
+<text x="470.5" y="54.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">34% lower</text>
+<text x="178" y="83.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">Hob1 accumulation</text>
+<g><title>Reduced 25-29%</title><rect x="190" y="72.0" width="215.6" height="15" rx="4" fill="var(--viz-3)"/></g>
+<text x="414.6" y="83.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">27% lower</text>
+</svg>

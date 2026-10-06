@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 171" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" class="viz">
+<text x="178" y="25.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">wild type</text>
+<g><title>Reference: 0.5 um</title><rect x="190" y="14.0" width="151.7" height="15" rx="4" fill="var(--viz-muted)"/></g>
+<text x="350.7" y="25.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">0.5 µm</text>
+<text x="178" y="54.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">bbc1Δ</text>
+<g><title>Twice wild type</title><rect x="190" y="43.0" width="303.4" height="15" rx="4" fill="var(--viz-1)"/></g>
+<text x="502.4" y="54.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">1.0 µm</text>
+<text x="178" y="83.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">bbc1Δ sla1Δ</text>
+<g><title>Still twice</title><rect x="190" y="72.0" width="303.4" height="15" rx="4" fill="var(--viz-1)"/></g>
+<text x="502.4" y="83.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">1.0 µm</text>
+<text x="178" y="112.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">sla1Δ</text>
+<g><title>Unchanged - Sla1 terminates, it does not position</title><rect x="190" y="101.0" width="151.7" height="15" rx="4" fill="var(--viz-muted)"/></g>
+<text x="350.7" y="112.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">0.5 µm</text>
+<text x="178" y="141.0" fill="var(--viz-muted)" font-size="12" text-anchor="end">bbc1Δ myo1-SH3-LCA</text>
+<g><title>Rescue: removing Wsp1 retention cancels bbc1Δ</title><rect x="190" y="130.0" width="151.7" height="15" rx="4" fill="var(--viz-2)"/></g>
+<text x="350.7" y="141.5" fill="var(--viz-ink)" font-size="11.5" font-weight="500">0.5 µm</text>
+</svg>
