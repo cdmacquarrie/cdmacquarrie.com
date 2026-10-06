@@ -37,6 +37,8 @@ END = "<!-- PUBS:END -->"
 MAILTO = "cameron.macquarrie@arcadiascience.com"
 UA = "cdmacquarrie.com publication sync (mailto:%s)" % MAILTO
 ARCADIA_PREFIX = "10.57844"
+STACKS = "https://thestacks.org"
+STACKS_USER = "4227"
 
 KIND_LABEL = {
     "journal": "Journal articles",
@@ -64,6 +66,12 @@ def norm_doi(doi):
 
 def esc(text):
     return (text or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def fetch_html(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=45) as resp:
+        return resp.read().decode("utf-8", "replace")
 
 
 def fetch_json(url):
@@ -141,6 +149,69 @@ def item_to_entry(item, surname):
         "url": None,
         "source": "crossref",
     }
+
+
+def discover_stacks(surname, known_slugs):
+    """Most of this work is published on The Stacks, and Crossref only sees
+    items that carry the ORCID or list the person as a formal author. So read
+    the author page directly, and split what it finds: entries where the
+    surname is in the citation metadata are publications; the rest are
+    contributions, reported but never added automatically.
+    """
+    found, contributed = [], []
+    try:
+        page = fetch_html("%s/users/%s" % (STACKS, STACKS_USER))
+    except (urllib.error.URLError, OSError, TimeoutError) as exc:
+        print("  ! The Stacks is unreachable (%s) - skipping" % exc, file=sys.stderr)
+        return found, contributed
+
+    cards = re.findall(r'href="/publications/([a-z0-9][a-z0-9\-]{6,})"[^>]*>\s*<div><p>(.*?)</p>',
+                       page, re.S)
+    seen = set()
+    for slug, title in cards:
+        if slug in seen or slug in known_slugs:
+            continue
+        seen.add(slug)
+        url = "%s/publications/%s" % (STACKS, slug)
+        try:
+            pub = fetch_html(url)
+        except (urllib.error.URLError, OSError, TimeoutError):
+            continue
+        authors = re.findall(r'<meta name="citation_author" content="([^"]+)"', pub)
+        doi = norm_doi((re.findall(r'<meta name="citation_doi" content="([^"]+)"', pub) or [None])[0])
+        date = (re.findall(r'<meta name="citation_date" content="([^"]+)"', pub) or [""])[0]
+        year = int(date.split("/")[0]) if date[:4].isdigit() else None
+        title = re.sub(r'\s+', " ", title).strip()
+
+        if not any(surname.lower() in a.lower() for a in authors):
+            contributed.append((title, url))
+            continue
+        found.append({
+            "title": title,
+            "authors": stacks_authors(authors, surname),
+            "venue": "Arcadia Science",
+            "year": year,
+            "kind": "arcadia",
+            "doi": doi,
+            "url": url,
+            "source": "stacks",
+        })
+    return found, contributed
+
+
+def stacks_authors(names, surname):
+    out = []
+    for full in names:
+        bits = full.split()
+        if not bits:
+            continue
+        family, given = bits[-1], bits[:-1]
+        initials = "".join(g[0].upper() for g in given if g)
+        name = (family + " " + initials).strip()
+        if family.lower() == surname.lower():
+            name = "<b>" + name + "</b>"
+        out.append(name)
+    return ", ".join(out)
 
 
 def discover(orcid, surname):
@@ -269,14 +340,24 @@ def main():
         try:
             with open(OUTPUT, "r", encoding="utf-8") as fh:
                 remembered = [e for e in json.load(fh).get("entries", [])
-                              if e.get("source") == "crossref"]
+                              if e.get("source") in ("crossref", "stacks")]
         except (ValueError, OSError):
             remembered = []
 
     offline = "--offline" in sys.argv
-    fresh = [] if offline else discover(orcid, surname)
+    known_slugs = set()
+    for e in list(cfg["entries"]) + remembered:
+        u = e.get("url") or ""
+        if "/publications/" in u:
+            known_slugs.add(u.rstrip("/").rsplit("/", 1)[-1])
+
+    fresh, contributed = [], []
     if not offline:
+        fresh = discover(orcid, surname)
         print("Crossref returned %d candidate record(s)." % len(fresh))
+        s_found, contributed = discover_stacks(surname, known_slugs)
+        print("The Stacks returned %d new authored record(s)." % len(s_found))
+        fresh = fresh + s_found
     discovered = remembered + fresh
 
     entries, added = merge(cfg["entries"], discovered, cfg.get("exclude", []))
@@ -287,6 +368,9 @@ def main():
         print("  + new: %s (%s) doi:%s" % (e["title"][:70], e["year"], e["doi"]))
     if not brand_new:
         print("  nothing new to add (%d previously discovered kept)." % len(remembered))
+    for title, url in contributed:
+        print("  ~ contributor only, not added: %s" % title[:66])
+        print("      %s" % url)
 
     with open(OUTPUT, "w", encoding="utf-8") as fh:
         json.dump({"count": len(entries), "entries": entries}, fh, indent=2, ensure_ascii=False)
