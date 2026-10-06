@@ -5,6 +5,16 @@
   "exclude": [],
   "entries": [
     {
+      "title": "Evaluation of Alcalase pretreatment for <em>Chlamydomonas reinhardtii</em> CRISPR knock-in",
+      "authors": "Futia R, Kraemer J, Caddell D",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "badge": "Contributor",
+      "doi": "10.57844/arcadia-pdu7-q2zz",
+      "url": "https://thestacks.org/publications/informative-failure-alcalase-crispr-chlamydomonas"
+    },
+    {
       "title": "Modular CRISPR landing pads for <em>Chlamydomonas reinhardtii</em>",
       "authors": "Futia R, Bigge BM, Caddell D, <b>MacQuarrie CD</b>, Bulow C, Bell A",
       "venue": "Arcadia Science",

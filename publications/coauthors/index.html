@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Coauthors &amp; publication data</title>
+<link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+ :root{--bg:#07090d;--bg2:#0b0f15;--tx:#e9edf3;--mu:#8d99aa;--bd:rgba(255,255,255,.10);--accent:#42e2a4}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--tx);line-height:1.65;
+      font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+ .wrap{max-width:860px;margin:0 auto;padding:clamp(2.5rem,7vw,5rem) clamp(1.25rem,4vw,2rem) 6rem}
+ a{color:var(--tx);text-decoration-color:var(--accent);text-underline-offset:3px}
+ code{font-size:.92em;opacity:.9}
+ .kicker{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+         margin:0 0 .9rem;font-weight:500}
+ h1{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(1.9rem,1.4rem+2.2vw,3rem);
+    margin:0 0 .9rem;letter-spacing:-.02em;line-height:1.12}
+ .lede{color:var(--mu);max-width:62ch;margin:0 0 .6rem}
+ .unlisted{font-size:.8rem;color:var(--mu);opacity:.8;margin:0 0 3rem}
+ h2{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:1.65rem;margin:3.5rem 0 .4rem;
+    letter-spacing:-.01em}
+ .sec-note{color:var(--mu);font-size:.9rem;margin:0 0 2rem;max-width:62ch}
+ .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;
+        margin:2.5rem 0 1rem;padding:1.3rem 0;border-top:1px solid var(--bd);
+        border-bottom:1px solid var(--bd)}
+ .stat b{display:block;font-family:Newsreader,serif;font-size:2rem;line-height:1;margin-bottom:.3rem}
+ .stat span{font-size:.76rem;color:var(--mu)}
+ .fig{margin:0 0 2.6rem;padding:1.4rem 1.3rem 1.1rem;border:1px solid var(--bd);
+      border-radius:14px;background:var(--bg2)}
+ .fig figcaption h3{font-size:1rem;font-weight:600;margin:0 0 .25rem}
+ .fig figcaption p{color:var(--mu);font-size:.84rem;margin:0 0 1.2rem;max-width:58ch}
+ .fig svg{display:block;max-width:100%;height:auto}
+ .src{color:var(--mu);font-size:.72rem;margin:1rem 0 0;opacity:.75}
+ .web{border:1px solid var(--bd);border-radius:14px;overflow:hidden;background:var(--bg2);
+      margin-bottom:1rem}
+ .web img{display:block;width:100%;height:auto}
+ footer{margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--bd);font-size:.82rem;color:var(--mu)}
+</style>
+</head>
+<body><div class="wrap">
+<p class="kicker">Unlisted page</p>
+<h1>Coauthors &amp; publication data</h1>
+<p class="lede">The shape of the publication record, and the headline numbers from a few of the
+papers. Built from the same <code>publications.json</code> the main site renders, so it stays
+current as that list grows.</p>
+<p class="unlisted">Not linked from anywhere and marked <code>noindex</code> &mdash; reachable only
+with the URL. Charts are static SVG; hover any mark for its value.</p>
+<div class="stats">
+  <div class="stat"><b>21</b><span>publications</span></div>
+  <div class="stat"><b>39</b><span>coauthors</span></div>
+  <div class="stat"><b>9</b><span>years, 2018&ndash;2026</span></div>
+  <div class="stat"><b>9</b><span>papers with Hochstrasser ML</span></div>
+</div>
+<h2>The coauthor web</h2>
+<p class="sec-note">Everyone who has shared a paper, linked wherever they appear together. Node
+size is papers shared; line weight is papers in common. The two eras barely touch &mdash; they
+connect only through the middle. Drawn from the 20 papers with authorship credit, so it excludes
+the one listed above as a contributor.</p>
+<div class="web"><img src="coauthor-web.svg" alt="Force-directed graph of 40 coauthors, coloured by era"></div>
+<h2>The record</h2>
+<p class="sec-note">Output by year, by venue, and who it was with.</p>
+<figure class="fig"><figcaption><h3>Publications per year</h3><p>Everything counted: papers, Arcadia pubs, abstracts, the thesis and one dataset.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 210" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<line x1="34" y1="70.0" x2="606" y2="70.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<line x1="34" y1="118.0" x2="606" y2="118.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<line x1="34" y1="166.0" x2="606" y2="166.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<g><title>2018: 1</title><rect x="49.7" y="149.1" width="40.0" height="16.9" rx="4" fill="#3987e5"/></g>
+<text x="69.8" y="143.1" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">1</text>
+<text x="69.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2018</text>
+<g><title>2019: 2</title><rect x="121.2" y="132.3" width="40.0" height="33.7" rx="4" fill="#3987e5"/></g>
+<text x="141.2" y="126.3" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">2</text>
+<text x="141.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2019</text>
+<g><title>2020: 1</title><rect x="192.7" y="149.1" width="40.0" height="16.9" rx="4" fill="#3987e5"/></g>
+<text x="212.8" y="143.1" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">1</text>
+<text x="212.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2020</text>
+<g><title>2022: 1</title><rect x="264.2" y="149.1" width="40.0" height="16.9" rx="4" fill="#3987e5"/></g>
+<text x="284.2" y="143.1" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">1</text>
+<text x="284.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2022</text>
+<g><title>2023: 3</title><rect x="335.7" y="115.4" width="40.0" height="50.6" rx="4" fill="#3987e5"/></g>
+<text x="355.8" y="109.4" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">3</text>
+<text x="355.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2023</text>
+<g><title>2024: 7</title><rect x="407.2" y="48.0" width="40.0" height="118.0" rx="4" fill="#3987e5"/></g>
+<text x="427.2" y="42.0" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">7</text>
+<text x="427.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2024</text>
+<g><title>2025: 1</title><rect x="478.7" y="149.1" width="40.0" height="16.9" rx="4" fill="#3987e5"/></g>
+<text x="498.8" y="143.1" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">1</text>
+<text x="498.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2025</text>
+<g><title>2026: 5</title><rect x="550.2" y="81.7" width="40.0" height="84.3" rx="4" fill="#3987e5"/></g>
+<text x="570.2" y="75.7" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">5</text>
+<text x="570.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2026</text>
+</svg></figure>
+<figure class="fig"><figcaption><h3>New coauthors per year</h3><p>First appearance of each person. The jump is the move to Arcadia and its large author lists.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 210" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<line x1="34" y1="70.0" x2="606" y2="70.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<line x1="34" y1="118.0" x2="606" y2="118.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<line x1="34" y1="166.0" x2="606" y2="166.0" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+<g><title>2018: 5</title><rect x="49.7" y="139.2" width="40.0" height="26.8" rx="4" fill="#d55181"/></g>
+<text x="69.8" y="133.2" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">5</text>
+<text x="69.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2018</text>
+<g><title>2019: 0</title><rect x="121.2" y="164.5" width="40.0" height="1.5" rx="4" fill="#d55181"/></g>
+<text x="141.2" y="158.5" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">0</text>
+<text x="141.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2019</text>
+<g><title>2020: 0</title><rect x="192.7" y="164.5" width="40.0" height="1.5" rx="4" fill="#d55181"/></g>
+<text x="212.8" y="158.5" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">0</text>
+<text x="212.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2020</text>
+<g><title>2022: 2</title><rect x="264.2" y="155.3" width="40.0" height="10.7" rx="4" fill="#d55181"/></g>
+<text x="284.2" y="149.3" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">2</text>
+<text x="284.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2022</text>
+<g><title>2023: 22</title><rect x="335.7" y="48.0" width="40.0" height="118.0" rx="4" fill="#d55181"/></g>
+<text x="355.8" y="42.0" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">22</text>
+<text x="355.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2023</text>
+<g><title>2024: 6</title><rect x="407.2" y="133.8" width="40.0" height="32.2" rx="4" fill="#d55181"/></g>
+<text x="427.2" y="127.8" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">6</text>
+<text x="427.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2024</text>
+<g><title>2025: 0</title><rect x="478.7" y="164.5" width="40.0" height="1.5" rx="4" fill="#d55181"/></g>
+<text x="498.8" y="158.5" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">0</text>
+<text x="498.8" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2025</text>
+<g><title>2026: 4</title><rect x="550.2" y="144.5" width="40.0" height="21.5" rx="4" fill="#d55181"/></g>
+<text x="570.2" y="138.5" fill="#e9edf3" font-size="11" font-weight="500" text-anchor="middle">4</text>
+<text x="570.2" y="196" fill="#8d99aa" font-size="11" text-anchor="middle">2026</text>
+</svg></figure>
+<figure class="fig"><figcaption><h3>By venue</h3><p>Most of the output is open access on The Stacks rather than in journals.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 166" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="163" y="25.0" fill="#8d99aa" font-size="12" text-anchor="end">Arcadia / The Stacks</text>
+<g><title>Arcadia / The Stacks: 12</title><rect x="175" y="14.0" width="316.1" height="15" rx="4" fill="#199e70"/></g>
+<text x="500.1" y="25.5" fill="#e9edf3" font-size="11.5" font-weight="500">12</text>
+<text x="163" y="53.0" fill="#8d99aa" font-size="12" text-anchor="end">Conference abstract</text>
+<g><title>Conference abstract: 4</title><rect x="175" y="42.0" width="105.4" height="15" rx="4" fill="#199e70"/></g>
+<text x="289.4" y="53.5" fill="#e9edf3" font-size="11.5" font-weight="500">4</text>
+<text x="163" y="81.0" fill="#8d99aa" font-size="12" text-anchor="end">Preprint &amp; thesis</text>
+<g><title>Preprint &amp; thesis: 2</title><rect x="175" y="70.0" width="52.7" height="15" rx="4" fill="#199e70"/></g>
+<text x="236.7" y="81.5" fill="#e9edf3" font-size="11.5" font-weight="500">2</text>
+<text x="163" y="109.0" fill="#8d99aa" font-size="12" text-anchor="end">Journal article</text>
+<g><title>Journal article: 2</title><rect x="175" y="98.0" width="52.7" height="15" rx="4" fill="#199e70"/></g>
+<text x="236.7" y="109.5" fill="#e9edf3" font-size="11.5" font-weight="500">2</text>
+<text x="163" y="137.0" fill="#8d99aa" font-size="12" text-anchor="end">Dataset</text>
+<g><title>Dataset: 1</title><rect x="175" y="126.0" width="26.3" height="15" rx="4" fill="#199e70"/></g>
+<text x="210.3" y="137.5" fill="#e9edf3" font-size="11.5" font-weight="500">1</text>
+</svg></figure>
+<figure class="fig"><figcaption><h3>Most frequent coauthors</h3><p>Papers shared. Four conference abstracts still have truncated author lists, so these are lower bounds.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 338" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="138" y="25.0" fill="#8d99aa" font-size="12" text-anchor="end">Hochstrasser ML</text>
+<g><title>Hochstrasser ML: 9 papers</title><rect x="150" y="14.0" width="337.3" height="15" rx="4" fill="#3987e5"/></g>
+<text x="496.3" y="25.5" fill="#e9edf3" font-size="11.5" font-weight="500">9 papers</text>
+<text x="138" y="51.0" fill="#8d99aa" font-size="12" text-anchor="end">Avasthi P</text>
+<g><title>Avasthi P: 8 papers</title><rect x="150" y="40.0" width="299.8" height="15" rx="4" fill="#3987e5"/></g>
+<text x="458.8" y="51.5" fill="#e9edf3" font-size="11.5" font-weight="500">8 papers</text>
+<text x="138" y="77.0" fill="#8d99aa" font-size="12" text-anchor="end">Bell A</text>
+<g><title>Bell A: 7 papers</title><rect x="150" y="66.0" width="262.3" height="15" rx="4" fill="#3987e5"/></g>
+<text x="421.3" y="77.5" fill="#e9edf3" font-size="11.5" font-weight="500">7 papers</text>
+<text x="138" y="103.0" fill="#8d99aa" font-size="12" text-anchor="end">Essock-Burns T</text>
+<g><title>Essock-Burns T: 7 papers</title><rect x="150" y="92.0" width="262.3" height="15" rx="4" fill="#3987e5"/></g>
+<text x="421.3" y="103.5" fill="#e9edf3" font-size="11.5" font-weight="500">7 papers</text>
+<text x="138" y="129.0" fill="#8d99aa" font-size="12" text-anchor="end">Braverman B</text>
+<g><title>Braverman B: 6 papers</title><rect x="150" y="118.0" width="224.9" height="15" rx="4" fill="#3987e5"/></g>
+<text x="383.9" y="129.5" fill="#e9edf3" font-size="11.5" font-weight="500">6 papers</text>
+<text x="138" y="155.0" fill="#8d99aa" font-size="12" text-anchor="end">Mets DG</text>
+<g><title>Mets DG: 6 papers</title><rect x="150" y="144.0" width="224.9" height="15" rx="4" fill="#3987e5"/></g>
+<text x="383.9" y="155.5" fill="#e9edf3" font-size="11.5" font-weight="500">6 papers</text>
+<text x="138" y="181.0" fill="#8d99aa" font-size="12" text-anchor="end">Bigge BM</text>
+<g><title>Bigge BM: 5 papers</title><rect x="150" y="170.0" width="187.4" height="15" rx="4" fill="#3987e5"/></g>
+<text x="346.4" y="181.5" fill="#e9edf3" font-size="11.5" font-weight="500">5 papers</text>
+<text x="138" y="207.0" fill="#8d99aa" font-size="12" text-anchor="end">Lane R</text>
+<g><title>Lane R: 4 papers</title><rect x="150" y="196.0" width="149.9" height="15" rx="4" fill="#3987e5"/></g>
+<text x="308.9" y="207.5" fill="#e9edf3" font-size="11.5" font-weight="500">4 papers</text>
+<text x="138" y="233.0" fill="#8d99aa" font-size="12" text-anchor="end">York R</text>
+<g><title>York R: 4 papers</title><rect x="150" y="222.0" width="149.9" height="15" rx="4" fill="#3987e5"/></g>
+<text x="308.9" y="233.5" fill="#e9edf3" font-size="11.5" font-weight="500">4 papers</text>
+<text x="138" y="259.0" fill="#8d99aa" font-size="12" text-anchor="end">Garcia G III</text>
+<g><title>Garcia G III: 4 papers</title><rect x="150" y="248.0" width="149.9" height="15" rx="4" fill="#3987e5"/></g>
+<text x="308.9" y="259.5" fill="#e9edf3" font-size="11.5" font-weight="500">4 papers</text>
+<text x="138" y="285.0" fill="#8d99aa" font-size="12" text-anchor="end">Gehring J</text>
+<g><title>Gehring J: 3 papers</title><rect x="150" y="274.0" width="112.4" height="15" rx="4" fill="#3987e5"/></g>
+<text x="271.4" y="285.5" fill="#e9edf3" font-size="11.5" font-weight="500">3 papers</text>
+<text x="138" y="311.0" fill="#8d99aa" font-size="12" text-anchor="end">Matus DQ</text>
+<g><title>Matus DQ: 3 papers</title><rect x="150" y="300.0" width="112.4" height="15" rx="4" fill="#3987e5"/></g>
+<text x="271.4" y="311.5" fill="#e9edf3" font-size="11.5" font-weight="500">3 papers</text>
+</svg></figure>
+<h2>Findings at a glance</h2>
+<p class="sec-note">Headline numbers from four papers, redrawn to one scale and palette. Each is the
+result the paper actually turns on.</p>
+<figure class="fig"><figcaption><h3>Bbc1 sets how far an endocytic patch travels</h3><p>Distance travelled by the tip markers End4 and Ent1 &mdash; the readout for force generated. Deleting Bbc1 doubles it; removing the Myo1 SH3 domain that retains Wsp1 cancels that again.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 171" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="173" y="25.0" fill="#8d99aa" font-size="12" text-anchor="end">wild type</text>
+<g><title>Reference: 0.5 um</title><rect x="185" y="14.0" width="153.8" height="15" rx="4" fill="#8d99aa"/></g>
+<text x="347.8" y="25.5" fill="#e9edf3" font-size="11.5" font-weight="500">0.5 µm</text>
+<text x="173" y="54.0" fill="#8d99aa" font-size="12" text-anchor="end">bbc1Δ</text>
+<g><title>Twice wild type</title><rect x="185" y="43.0" width="307.6" height="15" rx="4" fill="#3987e5"/></g>
+<text x="501.6" y="54.5" fill="#e9edf3" font-size="11.5" font-weight="500">1.0 µm</text>
+<text x="173" y="83.0" fill="#8d99aa" font-size="12" text-anchor="end">bbc1Δ sla1Δ</text>
+<g><title>Still twice</title><rect x="185" y="72.0" width="307.6" height="15" rx="4" fill="#3987e5"/></g>
+<text x="501.6" y="83.5" fill="#e9edf3" font-size="11.5" font-weight="500">1.0 µm</text>
+<text x="173" y="112.0" fill="#8d99aa" font-size="12" text-anchor="end">sla1Δ</text>
+<g><title>Unchanged - Sla1 terminates, it does not position</title><rect x="185" y="101.0" width="153.8" height="15" rx="4" fill="#8d99aa"/></g>
+<text x="347.8" y="112.5" fill="#e9edf3" font-size="11.5" font-weight="500">0.5 µm</text>
+<text x="173" y="141.0" fill="#8d99aa" font-size="12" text-anchor="end">bbc1Δ myo1-SH3-LCA</text>
+<g><title>Rescue: removing Wsp1 retention cancels bbc1Δ</title><rect x="185" y="130.0" width="153.8" height="15" rx="4" fill="#d95926"/></g>
+<text x="347.8" y="141.5" fill="#e9edf3" font-size="11.5" font-weight="500">0.5 µm</text>
+</svg><p class="src">MacQuarrie et al., J Cell Sci 132:jcs233502 (2019); PhD thesis ch. 2.</p></figure>
+<figure class="fig"><figcaption><h3>Vrp1 switches on Wsp1</h3><p>Losing Vrp1 costs the patch about a third of its actin and a third of its reach. Bars show the midpoint of each reported range.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 113" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="173" y="25.0" fill="#8d99aa" font-size="12" text-anchor="end">patch actin</text>
+<g><title>Reduced 33-43%</title><rect x="185" y="14.0" width="307.6" height="15" rx="4" fill="#199e70"/></g>
+<text x="501.6" y="25.5" fill="#e9edf3" font-size="11.5" font-weight="500">38% lower</text>
+<text x="173" y="54.0" fill="#8d99aa" font-size="12" text-anchor="end">End4 internalisation</text>
+<g><title>Reduced 28-40%</title><rect x="185" y="43.0" width="275.2" height="15" rx="4" fill="#199e70"/></g>
+<text x="469.2" y="54.5" fill="#e9edf3" font-size="11.5" font-weight="500">34% lower</text>
+<text x="173" y="83.0" fill="#8d99aa" font-size="12" text-anchor="end">Hob1 accumulation</text>
+<g><title>Reduced 25-29%</title><rect x="185" y="72.0" width="218.6" height="15" rx="4" fill="#199e70"/></g>
+<text x="412.6" y="83.5" fill="#e9edf3" font-size="11.5" font-weight="500">27% lower</text>
+</svg><p class="src">PhD thesis ch. 3. Ranges: actin 33&ndash;43%, internalisation 28&ndash;40%, Hob1 25&ndash;29%.</p></figure>
+<figure class="fig"><figcaption><h3>Two motility mutants, two different deficits</h3><p>Chlamydomonas strains standing in for human spermatogenic failure. They are not slower in the same way: cpc1-1 loses more speed, ida4 loses more sprint.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 126" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="178" y="32.0" fill="#8d99aa" font-size="12" text-anchor="end">ida4  (DNALI1 / SPGF83)</text>
+<g><title>ida4  (DNALI1 / SPGF83) mean linear speed: 44% below WT</title><rect x="190" y="16.0" width="235.7" height="13" rx="4" fill="#3987e5"/></g>
+<text x="433.7" y="26.5" fill="#e9edf3" font-size="11">44% below WT</text>
+<g><title>ida4  (DNALI1 / SPGF83) longest sprint: 45% below WT</title><rect x="190" y="33.0" width="241.1" height="13" rx="4" fill="#d95926"/></g>
+<text x="439.1" y="43.5" fill="#e9edf3" font-size="11">45% below WT</text>
+<text x="178" y="78.0" fill="#8d99aa" font-size="12" text-anchor="end">cpc1-1  (SPEF2 / SPGF43)</text>
+<g><title>cpc1-1  (SPEF2 / SPGF43) mean linear speed: 56% below WT</title><rect x="190" y="62.0" width="300.0" height="13" rx="4" fill="#3987e5"/></g>
+<text x="498.0" y="72.5" fill="#e9edf3" font-size="11">56% below WT</text>
+<g><title>cpc1-1  (SPEF2 / SPGF43) longest sprint: 30% below WT</title><rect x="190" y="79.0" width="160.7" height="13" rx="4" fill="#d95926"/></g>
+<text x="358.7" y="89.5" fill="#e9edf3" font-size="11">30% below WT</text>
+<rect x="190" y="111" width="10" height="10" rx="3" fill="#3987e5"/>
+<text x="206" y="120" fill="#8d99aa" font-size="11">mean linear speed</text>
+<rect x="322" y="111" width="10" height="10" rx="3" fill="#d95926"/>
+<text x="338" y="120" fill="#8d99aa" font-size="11">longest sprint</text>
+</svg><p class="src">Bell et al., Arcadia Science (2024).</p></figure>
+<figure class="fig"><figcaption><h3>Rescue is mutation-specific</h3><p>The point of the screen. Linsitinib improves cpc1-1 and makes ida4 worse; only Torin2 helps both. Six compounds at 50 &micro;M.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 258" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="256.0" y="22" fill="#e9edf3" font-size="12" font-weight="500" text-anchor="middle">ida4</text>
+<text x="488.0" y="22" fill="#e9edf3" font-size="12" font-weight="500" text-anchor="middle">cpc1-1</text>
+<text x="128" y="54.0" fill="#8d99aa" font-size="12" text-anchor="end">Torin2</text>
+<g><title>Torin2 on ida4: recovered</title><rect x="142.0" y="34.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="256.0" y="53.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<g><title>Torin2 on cpc1-1: recovered</title><rect x="374.0" y="34.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="53.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<text x="128" y="88.0" fill="#8d99aa" font-size="12" text-anchor="end">TAK-063</text>
+<g><title>TAK-063 on ida4: no change</title><rect x="142.0" y="68.0" width="228.0" height="28" rx="5" fill="#3a3f46"/><text x="256.0" y="87.0" fill="#8d99aa" font-size="10.5" text-anchor="middle">no change</text></g>
+<g><title>TAK-063 on cpc1-1: recovered</title><rect x="374.0" y="68.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="87.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<text x="128" y="122.0" fill="#8d99aa" font-size="12" text-anchor="end">Linsitinib</text>
+<g><title>Linsitinib on ida4: worse</title><rect x="142.0" y="102.0" width="228.0" height="28" rx="5" fill="#e66767"/><text x="256.0" y="121.0" fill="#ffffff" font-size="10.5" text-anchor="middle">worse</text></g>
+<g><title>Linsitinib on cpc1-1: recovered</title><rect x="374.0" y="102.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="121.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<text x="128" y="156.0" fill="#8d99aa" font-size="12" text-anchor="end">Ibudilast</text>
+<g><title>Ibudilast on ida4: worse</title><rect x="142.0" y="136.0" width="228.0" height="28" rx="5" fill="#e66767"/><text x="256.0" y="155.0" fill="#ffffff" font-size="10.5" text-anchor="middle">worse</text></g>
+<g><title>Ibudilast on cpc1-1: recovered</title><rect x="374.0" y="136.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="155.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<text x="128" y="190.0" fill="#8d99aa" font-size="12" text-anchor="end">Dynarrestin</text>
+<g><title>Dynarrestin on ida4: no change</title><rect x="142.0" y="170.0" width="228.0" height="28" rx="5" fill="#3a3f46"/><text x="256.0" y="189.0" fill="#8d99aa" font-size="10.5" text-anchor="middle">no change</text></g>
+<g><title>Dynarrestin on cpc1-1: recovered</title><rect x="374.0" y="170.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="189.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<text x="128" y="224.0" fill="#8d99aa" font-size="12" text-anchor="end">ATP</text>
+<g><title>ATP on ida4: no change</title><rect x="142.0" y="204.0" width="228.0" height="28" rx="5" fill="#3a3f46"/><text x="256.0" y="223.0" fill="#8d99aa" font-size="10.5" text-anchor="middle">no change</text></g>
+<g><title>ATP on cpc1-1: recovered</title><rect x="374.0" y="204.0" width="228.0" height="28" rx="5" fill="#3987e5"/><text x="488.0" y="223.0" fill="#ffffff" font-size="10.5" text-anchor="middle">recovered</text></g>
+<rect x="140.0" y="243" width="10" height="10" rx="3" fill="#3987e5"/>
+<text x="156.0" y="252" fill="#8d99aa" font-size="11">recovered</text>
+<rect x="227.6" y="243" width="10" height="10" rx="3" fill="#3a3f46"/>
+<text x="243.6" y="252" fill="#8d99aa" font-size="11">no change</text>
+<rect x="315.2" y="243" width="10" height="10" rx="3" fill="#e66767"/>
+<text x="331.2" y="252" fill="#8d99aa" font-size="11">worse</text>
+</svg><p class="src">Bell et al., Arcadia Science (2024), from the V-bottom and single-cell tracking results.</p></figure>
+<figure class="fig"><figcaption><h3>Stripping the diatom wall, and the part that did not replicate</h3><p>Alcalase works reliably. The cytoskeletal inhibitors gave about 50% protoplasts in the first two trials and 0% on every attempt afterwards &mdash; reported rather than quietly dropped.</p></figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 113" width="100%" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif" role="img">
+<text x="203" y="25.0" fill="#8d99aa" font-size="12" text-anchor="end">(-)-Blebbistatin, trials 1-2</text>
+<g><title>~50% protoplast formation</title><rect x="215" y="14.0" width="282.2" height="15" rx="4" fill="#c98500"/></g>
+<text x="506.2" y="25.5" fill="#e9edf3" font-size="11.5" font-weight="500">50% protoplasts</text>
+<text x="203" y="54.0" fill="#8d99aa" font-size="12" text-anchor="end">Alcalase 0.3-0.6 U/mL</text>
+<g><title>33-43% of cells formed protoplasts</title><rect x="215" y="43.0" width="214.5" height="15" rx="4" fill="#199e70"/></g>
+<text x="438.5" y="54.5" fill="#e9edf3" font-size="11.5" font-weight="500">38% protoplasts</text>
+<text x="203" y="83.0" fill="#8d99aa" font-size="12" text-anchor="end">Cytoskeletal drugs, later trials</text>
+<g><title>0% on every replication attempt</title><rect x="215" y="72.0" width="2.0" height="15" rx="4" fill="#8d99aa"/></g>
+<text x="226.0" y="83.5" fill="#e9edf3" font-size="11.5" font-weight="500">0% protoplasts</text>
+</svg><p class="src">Avasthi et al., Arcadia Science (2023), doi:10.57844/arcadia-fh8f-xz51.</p></figure>
+<footer><p><a href="../../">&larr; Back to the site</a></p></footer>
+</div></body></html>

@@ -1,5 +1,5 @@
 {
-  "count": 20,
+  "count": 21,
   "entries": [
     {
       "title": "An automated workflow for kit-based ELISAs",
@@ -9,6 +9,17 @@
       "kind": "arcadia",
       "doi": null,
       "url": "https://thestacks.org/publications/resource-cayman-his-elisa-opentrons-workflow",
+      "source": "manual"
+    },
+    {
+      "title": "Evaluation of Alcalase pretreatment for <em>Chlamydomonas reinhardtii</em> CRISPR knock-in",
+      "authors": "Futia R, Kraemer J, Caddell D",
+      "venue": "Arcadia Science",
+      "year": 2026,
+      "kind": "arcadia",
+      "badge": "Contributor",
+      "doi": "10.57844/arcadia-pdu7-q2zz",
+      "url": "https://thestacks.org/publications/informative-failure-alcalase-crispr-chlamydomonas",
       "source": "manual"
     },
     {
