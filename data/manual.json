@@ -5,6 +5,24 @@
   "exclude": [],
   "entries": [
     {
+      "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad4433",
+      "url": null
+    },
+    {
+      "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad4397",
+      "url": null
+    },
+    {
       "title": "Evaluation of Alcalase pretreatment for <em>Chlamydomonas reinhardtii</em> CRISPR knock-in",
       "authors": "Futia R, Kraemer J, Caddell D",
       "venue": "Arcadia Science",

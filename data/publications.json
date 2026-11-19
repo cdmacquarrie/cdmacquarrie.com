@@ -1,5 +1,5 @@
 {
-  "count": 22,
+  "count": 24,
   "entries": [
     {
       "title": "An automated workflow for kit-based ELISAs",
@@ -13,6 +13,16 @@
       "source": "manual"
     },
     {
+      "title": "Chlorarachniophytes form light- and Arp2/3 complex-dependent extensions that are involved in motility and predation",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad4397",
+      "url": null,
+      "source": "manual"
+    },
+    {
       "title": "Evaluation of Alcalase pretreatment for <em>Chlamydomonas reinhardtii</em> CRISPR knock-in",
       "authors": "Futia R, Kraemer J, Caddell D",
       "venue": "Arcadia Science",
@@ -21,6 +31,16 @@
       "badge": "Contributor",
       "doi": "10.57844/arcadia-pdu7-q2zz",
       "url": "https://thestacks.org/publications/informative-failure-alcalase-crispr-chlamydomonas",
+      "source": "manual"
+    },
+    {
+      "title": "Inducing protoplast formation in <em>Phaeodactylum tricornutum</em> by silica deprivation, enzymatic treatment, or cytoskeletal inhibition",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad4433",
+      "url": null,
       "source": "manual"
     },
     {
