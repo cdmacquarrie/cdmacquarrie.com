@@ -1,5 +1,5 @@
 {
-  "count": 21,
+  "count": 22,
   "entries": [
     {
       "title": "An automated workflow for kit-based ELISAs",
@@ -52,6 +52,16 @@
       "doi": null,
       "url": "https://thestacks.org/publications/observation-marine-broth-chlamy",
       "source": "manual"
+    },
+    {
+      "title": "Peptone and yeast extract shift morphotype balance in Phaeodactylum tricornutum",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "BioStudies Database",
+      "year": 2026,
+      "kind": "dataset",
+      "doi": "10.6019/s-biad4366",
+      "url": null,
+      "source": "crossref"
     },
     {
       "title": "<em>Chlamydomonas</em> cpc1-1 mutant exhibits unexpected growth phenotypes",
