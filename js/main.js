@@ -266,6 +266,7 @@
   if (canvas && canvas.getContext) {
     var ctx = canvas.getContext("2d");
     var pts = [];
+    var pulses = [];
     var w = 0, h = 0, dpr = 1;
     var pointer = { x: -9999, y: -9999 };
     var running = true;
@@ -305,6 +306,30 @@
       ctx.clearRect(0, 0, w, h);
       for (var i = 0; i < pts.length; i++) {
         var p = pts[i];
+        for (var j = i + 1; j < pts.length; j++) {
+          var q = pts[j];
+          var dx = p.x - q.x, dy = p.y - q.y;
+          var d2 = dx * dx + dy * dy;
+          if (d2 < 7200) {
+            ctx.strokeStyle = colorFor(p, (1 - d2 / 7200) * 0.11);
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (var k = 0; k < pulses.length; k++) {
+        var pl = pulses[k];
+        ctx.strokeStyle = colorFor(pl, pl.a);
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.arc(pl.x, pl.y, pl.r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i];
         var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 7);
         g.addColorStop(0, colorFor(p, p.a));
         g.addColorStop(1, colorFor(p, 0));
@@ -317,6 +342,12 @@
 
     function tick() {
       if (!running) return;
+      for (var k = pulses.length - 1; k >= 0; k--) {
+        var pl = pulses[k];
+        pl.r += 2.6;
+        pl.a *= 0.945;
+        if (pl.a < 0.015) pulses.splice(k, 1);
+      }
       for (var i = 0; i < pts.length; i++) {
         var p = pts[i];
         var dx = p.x - pointer.x, dy = p.y - pointer.y;
@@ -348,6 +379,23 @@
       });
       canvas.parentElement.addEventListener("pointerleave", function () {
         pointer.x = -9999; pointer.y = -9999;
+      });
+      canvas.parentElement.addEventListener("pointerdown", function (e) {
+        if (e.target.closest("a, button")) return;
+        var r = canvas.getBoundingClientRect();
+        var cx = e.clientX - r.left, cy = e.clientY - r.top;
+        pulses.push({ x: cx, y: cy, r: 4, hue: Math.random() < 0.65 ? "green" : "magenta", a: 0.55 });
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          var dx = p.x - cx, dy = p.y - cy;
+          var d2 = dx * dx + dy * dy;
+          if (d2 < 32000 && d2 > 0.01) {
+            var d = Math.sqrt(d2);
+            var kick = (1 - d / 179) * 1.4;
+            p.vx += (dx / d) * kick;
+            p.vy += (dy / d) * kick;
+          }
+        }
       });
       document.addEventListener("visibilitychange", function () {
         running = !document.hidden;

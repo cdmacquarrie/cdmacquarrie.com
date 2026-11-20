@@ -110,8 +110,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .brand-mark {
   width: 24px; height: 24px; flex: none;
-  display: block;
+  display: block; transition: transform .6s var(--ease);
 }
+.brand:hover .brand-mark { transform: rotate(30deg); }
 .brand-text { font-size: .98rem; }
 
 .nav-menu { display: flex; align-items: center; gap: .35rem; }
@@ -398,7 +399,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .reveal.is-in { opacity: 1; translate: 0 0; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; translate: 0 0; transition: none; }
-  .card:hover, .btn:hover, .gal-item:hover { transform: none; }
+  .card:hover, .btn:hover, .gal-item:hover, .organisms li:hover, .organisms li:hover img, .brand:hover .brand-mark, .footer-mark:hover { transform: none; }
 }
 
 /* ============ RESPONSIVE ============ */
@@ -493,12 +494,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: inline-flex; align-items: center; gap: .45rem;
   padding: .26rem .65rem .26rem .42rem; border-radius: 999px;
   border: 1px solid var(--border); background: var(--surface);
+  transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
 }
-.organisms img { width: 20px; height: 20px; display: block; flex: none; opacity: .92; }
+.organisms li:hover {
+  transform: translateY(-2px); background: var(--surface-2);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+.organisms img { width: 20px; height: 20px; display: block; flex: none; opacity: .92; transition: transform .3s var(--ease); }
+.organisms li:hover img { transform: scale(1.22) rotate(-6deg); }
 .organisms span {
   font-family: var(--serif); font-style: italic; font-size: .78rem;
   color: var(--muted); line-height: 1.2; white-space: nowrap;
+  transition: color .25s var(--ease);
 }
+.organisms li:hover span { color: var(--text); }
 @media (max-width: 760px) { .organisms { padding-left: 0; } }
 
 /* ============ CAROUSEL ============ */
@@ -548,7 +557,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   text-align: center;
   gap: 0;
 }
-.footer-mark { width: 104px; height: 104px; margin: 0 0 1.3rem; display: block; }
+.footer-mark { width: 104px; height: 104px; margin: 0 0 1.3rem; display: block; transition: transform .9s var(--ease); }
+.footer-mark:hover { transform: rotate(180deg); }
 .footer-name { margin: 0 0 .4rem; }
 .footer-meta { margin: 0; }
 @media (max-width: 760px) {
