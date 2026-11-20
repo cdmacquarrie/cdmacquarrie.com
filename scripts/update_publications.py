@@ -15,7 +15,7 @@ It only ever adds. If Crossref is down or returns nothing, the manual
 list is rendered unchanged, so the page cannot regress.
 
 Run locally:  python scripts/update_publications.py
-CI runs it weekly; see .github/workflows/publications.yml
+CI runs it monthly; see .github/workflows/deploy.yml
 """
 
 import json
@@ -214,6 +214,107 @@ def stacks_authors(names, surname):
     return ", ".join(out)
 
 
+def format_creator_name(full, surname):
+    """Format 'Last, First' or 'First Last' as 'Last FI', bolding surname."""
+    full = (full or "").strip()
+    if not full:
+        return ""
+    if "," in full:
+        family, given = [p.strip() for p in full.split(",", 1)]
+        initials = "".join(p[0].upper() for p in re.split(r"[\s.\-]+", given) if p)
+        name = (family + " " + initials).strip()
+    else:
+        bits = full.split()
+        family, given = bits[-1], bits[:-1]
+        initials = "".join(p[0].upper() for p in given if p)
+        name = (family + " " + initials).strip()
+    if family.lower() == surname.lower():
+        name = "<b>" + name + "</b>"
+    return name
+
+
+def discover_zenodo(orcid, surname):
+    """Query Zenodo for dataset/image records by this ORCID or Cameron MacQuarrie."""
+    found = []
+    seen_doi = set()
+    queries = [
+        "creators.orcid:" + orcid,
+        'creators.name:"MacQuarrie, Cameron"',
+    ]
+    for q in queries:
+        url = "https://zenodo.org/api/records?" + urllib.parse.urlencode({"q": q, "size": 25})
+        try:
+            payload = fetch_json(url)
+        except (urllib.error.URLError, ValueError, TimeoutError) as exc:
+            print("  ! Zenodo query failed (%s) - continuing" % exc, file=sys.stderr)
+            continue
+        for hit in payload.get("hits", {}).get("hits", []):
+            doi = norm_doi(hit.get("doi"))
+            if not doi or doi in seen_doi:
+                continue
+            meta = hit.get("metadata") or {}
+            rtype = (meta.get("resource_type") or {}).get("type", "")
+            if rtype not in ("dataset", "image"):
+                continue
+            creators = [c.get("name", "") for c in meta.get("creators") or []]
+            if not any(surname.lower() in c.lower() and "cameron" in c.lower() for c in creators):
+                continue
+            date = meta.get("publication_date") or ""
+            year = int(date[:4]) if date[:4].isdigit() else None
+            title = (meta.get("title") or "").strip()
+            if not title or not year:
+                continue
+            seen_doi.add(doi)
+            authors = ", ".join(filter(None, (format_creator_name(c, surname) for c in creators)))
+            found.append({
+                "title": esc(title),
+                "authors": authors,
+                "venue": "Zenodo",
+                "year": year,
+                "kind": "dataset",
+                "doi": doi,
+                "url": None,
+                "source": "zenodo",
+            })
+    return found
+
+
+def discover_biostudies(surname):
+    """Query BioStudies / BioImage Archive for S-BIAD datasets by Cameron MacQuarrie."""
+    found = []
+    url = "https://www.ebi.ac.uk/biostudies/api/v1/search?" + urllib.parse.urlencode({
+        "query": surname, "pageSize": 25,
+    })
+    try:
+        payload = fetch_json(url)
+    except (urllib.error.URLError, ValueError, TimeoutError) as exc:
+        print("  ! BioStudies query failed (%s) - continuing" % exc, file=sys.stderr)
+        return found
+    for hit in payload.get("hits", []):
+        acc = (hit.get("accession") or "").strip()
+        if not acc.upper().startswith("S-BIAD"):
+            continue
+        author = (hit.get("author") or "").strip()
+        if surname.lower() not in author.lower() or "cameron" not in author.lower():
+            continue
+        date = hit.get("release_date") or ""
+        year = int(date[:4]) if date[:4].isdigit() else None
+        title = (hit.get("title") or "").strip()
+        if not title or not year:
+            continue
+        found.append({
+            "title": esc(title),
+            "authors": format_creator_name(author, surname),
+            "venue": "BioStudies Database",
+            "year": year,
+            "kind": "dataset",
+            "doi": norm_doi("10.6019/" + acc.lower()),
+            "url": None,
+            "source": "biostudies",
+        })
+    return found
+
+
 def discover(orcid, surname):
     found = []
     for url in crossref_queries(orcid, surname):
@@ -354,7 +455,7 @@ def main():
         try:
             with open(OUTPUT, "r", encoding="utf-8") as fh:
                 remembered = [e for e in json.load(fh).get("entries", [])
-                              if e.get("source") in ("crossref", "stacks")]
+                              if e.get("source") in ("crossref", "stacks", "zenodo", "biostudies")]
         except (ValueError, OSError):
             remembered = []
 
@@ -369,9 +470,13 @@ def main():
     if not offline:
         fresh = discover(orcid, surname)
         print("Crossref returned %d candidate record(s)." % len(fresh))
+        z_found = discover_zenodo(orcid, surname)
+        print("Zenodo returned %d dataset record(s)." % len(z_found))
+        b_found = discover_biostudies(surname)
+        print("BioStudies returned %d dataset record(s)." % len(b_found))
         s_found, contributed = discover_stacks(surname, known_slugs)
         print("The Stacks returned %d new authored record(s)." % len(s_found))
-        fresh = fresh + s_found
+        fresh = fresh + z_found + b_found + s_found
     discovered = remembered + fresh
 
     entries, added = merge(cfg["entries"], discovered, cfg.get("exclude", []))

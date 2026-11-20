@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # Mondays, 06:20 UTC — look for newly indexed publications.
-    - cron: "20 6 * * 1"
+    # 1st of each month, 06:20 UTC — look for newly indexed publications and datasets.
+    - cron: "20 6 1 * *"
   workflow_dispatch:
 
 permissions:
@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh publications from Crossref
+      - name: Refresh publications and datasets
         run: python scripts/update_publications.py
 
       - name: Rebuild the image gallery manifest

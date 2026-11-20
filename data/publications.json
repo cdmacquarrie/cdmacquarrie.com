@@ -1,5 +1,5 @@
 {
-  "count": 24,
+  "count": 25,
   "entries": [
     {
       "title": "An automated workflow for kit-based ELISAs",
@@ -204,6 +204,16 @@
       "doi": null,
       "url": "https://thestacks.org/publications/result-chlamydomonas-phenotypes",
       "source": "manual"
+    },
+    {
+      "title": "Phenotypic differences between interfertile Chlamydomonas species - Cell Wall Analysis",
+      "authors": "<b>MacQuarrie C</b>",
+      "venue": "Zenodo",
+      "year": 2023,
+      "kind": "dataset",
+      "doi": "10.5281/zenodo.10127618",
+      "url": null,
+      "source": "zenodo"
     },
     {
       "title": "ProteinCartography: comparing proteins with structure-based maps for interactive exploration",
