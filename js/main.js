@@ -414,7 +414,7 @@
   /* ---------- phototaxis Chlamydomonas swimmers ----------
      Turn on the lightbulb in the header and Chlamydomonas cells swim
      toward it using positive phototaxis (and disperse when turned off). */
-  if (!reduceMotion) {
+  (function () {
     var NS = "http://www.w3.org/2000/svg";
     var lightBtn = document.getElementById("lightToggle");
     var lightOn = false;
@@ -593,5 +593,5 @@
         spawnChlamy(e.clientX, window.innerHeight + 25);
       });
     }
-  }
+  })();
 })();
