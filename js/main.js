@@ -410,4 +410,107 @@
       tick();
     }
   }
+
+  /* ---------- hidden Chlamydomonas swimmer ----------
+     Click any Chlamydomonas pill or the footer cladogram to launch a
+     breaststroke-swimming cell up the viewport. */
+  if (!reduceMotion) {
+    var NS = "http://www.w3.org/2000/svg";
+    function spawnChlamy(startX) {
+      var svg = document.createElementNS(NS, "svg");
+      svg.setAttribute("viewBox", "0 0 64 76");
+      svg.setAttribute("aria-hidden", "true");
+      svg.style.cssText =
+        "position:fixed;width:44px;height:52px;left:0;top:0;pointer-events:none;z-index:250;will-change:transform;";
+
+      var fl = document.createElementNS(NS, "path");
+      fl.setAttribute("fill", "none");
+      fl.setAttribute("stroke", "#42e2a4");
+      fl.setAttribute("stroke-width", "2.2");
+      fl.setAttribute("stroke-linecap", "round");
+
+      var fr = document.createElementNS(NS, "path");
+      fr.setAttribute("fill", "none");
+      fr.setAttribute("stroke", "#42e2a4");
+      fr.setAttribute("stroke-width", "2.2");
+      fr.setAttribute("stroke-linecap", "round");
+
+      var body = document.createElementNS(NS, "ellipse");
+      body.setAttribute("cx", "32");
+      body.setAttribute("cy", "46");
+      body.setAttribute("rx", "13");
+      body.setAttribute("ry", "17");
+      body.setAttribute("fill", "#0c8f60");
+      body.setAttribute("stroke", "#42e2a4");
+      body.setAttribute("stroke-width", "1.6");
+
+      var cup = document.createElementNS(NS, "path");
+      cup.setAttribute("d", "M21 44 C21 57, 43 57, 43 44 C43 51, 38 54, 32 54 C26 54, 21 51, 21 44 Z");
+      cup.setAttribute("fill", "#42e2a4");
+      cup.setAttribute("opacity", "0.45");
+
+      var eyespot = document.createElementNS(NS, "circle");
+      eyespot.setAttribute("cx", "38");
+      eyespot.setAttribute("cy", "41");
+      eyespot.setAttribute("r", "2.3");
+      eyespot.setAttribute("fill", "#eb6834");
+
+      svg.appendChild(fl);
+      svg.appendChild(fr);
+      svg.appendChild(body);
+      svg.appendChild(cup);
+      svg.appendChild(eyespot);
+      document.body.appendChild(svg);
+
+      var baseX = typeof startX === "number"
+        ? Math.max(40, Math.min(window.innerWidth - 40, startX))
+        : 60 + Math.random() * Math.max(80, window.innerWidth - 120);
+      var y = window.innerHeight + 30;
+      var speed = 115 + Math.random() * 45;
+      var swayAmp = 18 + Math.random() * 18;
+      var phase = Math.random() * Math.PI * 2;
+      var t0 = performance.now();
+      var prevT = t0;
+
+      function swim(now) {
+        var dt = Math.min(0.05, (now - prevT) / 1000);
+        prevT = now;
+        var elapsed = (now - t0) / 1000;
+        y -= speed * dt;
+        var x = baseX + Math.sin(elapsed * 2.8 + phase) * swayAmp;
+        var vx = Math.cos(elapsed * 2.8 + phase) * swayAmp * 2.8;
+        var tilt = Math.atan2(vx, speed) * (180 / Math.PI);
+
+        // Breaststroke beat cycle (~5.5 Hz)
+        var beat = Math.sin(elapsed * 18);
+        var sweep = 13 + beat * 11;
+        var tipY = 22 + beat * 12;
+        fl.setAttribute("d", "M29 30 Q" + (22 - sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (27 - sweep).toFixed(1) + " " + tipY.toFixed(1));
+        fr.setAttribute("d", "M35 30 Q" + (42 + sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (37 + sweep).toFixed(1) + " " + tipY.toFixed(1));
+
+        svg.style.transform = "translate3d(" + (x - 22).toFixed(1) + "px," + (y - 26).toFixed(1) + "px,0) rotate(" + tilt.toFixed(1) + "deg)";
+        if (y > -70) {
+          requestAnimationFrame(swim);
+        } else {
+          svg.remove();
+        }
+      }
+      requestAnimationFrame(swim);
+    }
+
+    document.querySelectorAll(".organisms li").forEach(function (li) {
+      var label = li.querySelector("span");
+      if (label && label.textContent.trim() === "Chlamydomonas") {
+        li.addEventListener("click", function (e) {
+          spawnChlamy(e.clientX);
+        });
+      }
+    });
+    var footerMark = document.querySelector(".footer-mark");
+    if (footerMark) {
+      footerMark.addEventListener("click", function (e) {
+        spawnChlamy(e.clientX);
+      });
+    }
+  }
 })();
