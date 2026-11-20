@@ -124,15 +124,22 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .nav-menu > li > a:hover { color: var(--text); background: var(--surface); }
 .nav-menu > li > a.is-current { color: var(--text); background: var(--surface-2); }
 
-.theme-toggle {
+.nav-theme { display: flex; align-items: center; gap: .4rem; margin-left: .3rem; }
+.light-toggle, .theme-toggle {
   display: grid; place-items: center;
-  width: 36px; height: 36px; margin-left: .3rem;
+  width: 36px; height: 36px;
   border: 1px solid var(--border); border-radius: 999px;
   background: var(--surface); color: var(--text); cursor: pointer;
   transition: background .2s var(--ease), border-color .2s var(--ease);
 }
-.theme-toggle:hover { background: var(--surface-2); }
-.theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.light-toggle:hover, .theme-toggle:hover { background: var(--surface-2); }
+.light-toggle svg, .theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.light-toggle.is-lit {
+  color: #f5c542; border-color: rgba(245, 197, 66, .65);
+  background: rgba(245, 197, 66, .14);
+  box-shadow: 0 0 18px rgba(245, 197, 66, .45);
+}
+.light-toggle.is-lit svg { fill: rgba(245, 197, 66, .35); }
 .theme-toggle .icon-sun { display: none; }
 :root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="light"] .theme-toggle .icon-moon { display: none; }

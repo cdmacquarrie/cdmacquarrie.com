@@ -411,17 +411,22 @@
     }
   }
 
-  /* ---------- hidden Chlamydomonas swimmer ----------
-     Click any Chlamydomonas pill or the footer cladogram to launch a
-     breaststroke-swimming cell up the viewport. */
+  /* ---------- phototaxis Chlamydomonas swimmers ----------
+     Turn on the lightbulb in the header and Chlamydomonas cells swim
+     toward it using positive phototaxis (and disperse when turned off). */
   if (!reduceMotion) {
     var NS = "http://www.w3.org/2000/svg";
-    function spawnChlamy(startX) {
+    var lightBtn = document.getElementById("lightToggle");
+    var lightOn = false;
+    var swimmers = [];
+    var swimming = false;
+
+    function createChlamySvg() {
       var svg = document.createElementNS(NS, "svg");
       svg.setAttribute("viewBox", "0 0 64 76");
       svg.setAttribute("aria-hidden", "true");
       svg.style.cssText =
-        "position:fixed;width:44px;height:52px;left:0;top:0;pointer-events:none;z-index:250;will-change:transform;";
+        "position:fixed;width:40px;height:48px;left:0;top:0;pointer-events:none;z-index:250;will-change:transform;";
 
       var fl = document.createElementNS(NS, "path");
       fl.setAttribute("fill", "none");
@@ -461,55 +466,131 @@
       svg.appendChild(cup);
       svg.appendChild(eyespot);
       document.body.appendChild(svg);
+      return { svg: svg, fl: fl, fr: fr };
+    }
 
-      var baseX = typeof startX === "number"
-        ? Math.max(40, Math.min(window.innerWidth - 40, startX))
-        : 60 + Math.random() * Math.max(80, window.innerWidth - 120);
-      var y = window.innerHeight + 30;
-      var speed = 115 + Math.random() * 45;
-      var swayAmp = 18 + Math.random() * 18;
-      var phase = Math.random() * Math.PI * 2;
-      var t0 = performance.now();
-      var prevT = t0;
+    function spawnChlamy(startX, startY) {
+      var els = createChlamySvg();
+      var x = typeof startX === "number"
+        ? startX
+        : 40 + Math.random() * Math.max(80, window.innerWidth - 80);
+      var y = typeof startY === "number"
+        ? startY
+        : window.innerHeight + 25 + Math.random() * 80;
+      swimmers.push({
+        svg: els.svg,
+        fl: els.fl,
+        fr: els.fr,
+        x: x,
+        y: y,
+        angle: -Math.PI / 2 + (Math.random() - 0.5) * 0.6,
+        speed: 135 + Math.random() * 55,
+        phase: Math.random() * Math.PI * 2,
+        orbitR: 26 + Math.random() * 34,
+        orbitDir: Math.random() < 0.5 ? 1 : -1
+      });
+      if (!swimming) {
+        swimming = true;
+        lastSwimT = performance.now();
+        requestAnimationFrame(stepSwimmers);
+      }
+    }
 
-      function swim(now) {
-        var dt = Math.min(0.05, (now - prevT) / 1000);
-        prevT = now;
-        var elapsed = (now - t0) / 1000;
-        y -= speed * dt;
-        var x = baseX + Math.sin(elapsed * 2.8 + phase) * swayAmp;
-        var vx = Math.cos(elapsed * 2.8 + phase) * swayAmp * 2.8;
-        var tilt = Math.atan2(vx, speed) * (180 / Math.PI);
+    var lastSwimT = 0;
+    function stepSwimmers(now) {
+      var dt = Math.min(0.05, (now - lastSwimT) / 1000);
+      lastSwimT = now;
+      var elapsed = now / 1000;
 
-        // Breaststroke beat cycle (~5.5 Hz)
-        var beat = Math.sin(elapsed * 18);
-        var sweep = 13 + beat * 11;
-        var tipY = 22 + beat * 12;
-        fl.setAttribute("d", "M29 30 Q" + (22 - sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (27 - sweep).toFixed(1) + " " + tipY.toFixed(1));
-        fr.setAttribute("d", "M35 30 Q" + (42 + sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (37 + sweep).toFixed(1) + " " + tipY.toFixed(1));
-
-        svg.style.transform = "translate3d(" + (x - 22).toFixed(1) + "px," + (y - 26).toFixed(1) + "px,0) rotate(" + tilt.toFixed(1) + "deg)";
-        if (y > -70) {
-          requestAnimationFrame(swim);
-        } else {
-          svg.remove();
+      var target = null;
+      if (lightOn && lightBtn) {
+        var r = lightBtn.getBoundingClientRect();
+        if (r.width > 0 && r.height > 0) {
+          target = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
         }
       }
-      requestAnimationFrame(swim);
+
+      for (var i = swimmers.length - 1; i >= 0; i--) {
+        var s = swimmers[i];
+        var desiredAngle = -Math.PI / 2;
+        var curSpeed = s.speed;
+
+        if (target) {
+          var dx = target.x - s.x;
+          var dy = target.y - s.y;
+          var dist = Math.hypot(dx, dy);
+          var toBulb = Math.atan2(dy, dx);
+          if (dist < s.orbitR + 18) {
+            // Orbit around the lit bulb
+            desiredAngle = toBulb + s.orbitDir * (Math.PI / 2 + 0.25);
+            curSpeed = s.speed * 0.72;
+          } else {
+            desiredAngle = toBulb;
+          }
+        } else {
+          // Gently weave upward when light is off
+          desiredAngle = -Math.PI / 2 + Math.sin(elapsed * 2.2 + s.phase) * 0.35;
+        }
+
+        // Smooth angular steering + natural helical wobble
+        var diff = Math.atan2(Math.sin(desiredAngle - s.angle), Math.cos(desiredAngle - s.angle));
+        s.angle += diff * Math.min(1, dt * 4.5);
+        var wobble = Math.sin(elapsed * 5.5 + s.phase) * 0.14;
+        var moveAngle = s.angle + wobble;
+
+        s.x += Math.cos(moveAngle) * curSpeed * dt;
+        s.y += Math.sin(moveAngle) * curSpeed * dt;
+
+        // Breaststroke beat (~5.5 Hz)
+        var beat = Math.sin(elapsed * 18 + s.phase);
+        var sweep = 13 + beat * 11;
+        var tipY = 22 + beat * 12;
+        s.fl.setAttribute("d", "M29 30 Q" + (22 - sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (27 - sweep).toFixed(1) + " " + tipY.toFixed(1));
+        s.fr.setAttribute("d", "M35 30 Q" + (42 + sweep * 0.5).toFixed(1) + " " + (12 + beat * 6).toFixed(1) + " " + (37 + sweep).toFixed(1) + " " + tipY.toFixed(1));
+
+        var deg = moveAngle * (180 / Math.PI) + 90;
+        s.svg.style.transform =
+          "translate3d(" + (s.x - 20).toFixed(1) + "px," + (s.y - 24).toFixed(1) + "px,0) rotate(" + deg.toFixed(1) + "deg)";
+
+        if (!lightOn && (s.y < -80 || s.x < -80 || s.x > window.innerWidth + 80)) {
+          s.svg.remove();
+          swimmers.splice(i, 1);
+        }
+      }
+
+      if (swimmers.length > 0) {
+        requestAnimationFrame(stepSwimmers);
+      } else {
+        swimming = false;
+      }
+    }
+
+    if (lightBtn) {
+      lightBtn.addEventListener("click", function () {
+        lightOn = !lightOn;
+        lightBtn.classList.toggle("is-lit", lightOn);
+        lightBtn.setAttribute("aria-pressed", String(lightOn));
+        lightBtn.setAttribute("aria-label", lightOn ? "Turn off phototaxis light" : "Turn on phototaxis light");
+        if (lightOn) {
+          for (var n = 0; n < 6; n++) {
+            spawnChlamy();
+          }
+        }
+      });
     }
 
     document.querySelectorAll(".organisms li").forEach(function (li) {
       var label = li.querySelector("span");
       if (label && label.textContent.trim() === "Chlamydomonas") {
         li.addEventListener("click", function (e) {
-          spawnChlamy(e.clientX);
+          spawnChlamy(e.clientX, window.innerHeight + 25);
         });
       }
     });
     var footerMark = document.querySelector(".footer-mark");
     if (footerMark) {
       footerMark.addEventListener("click", function (e) {
-        spawnChlamy(e.clientX);
+        spawnChlamy(e.clientX, window.innerHeight + 25);
       });
     }
   }
